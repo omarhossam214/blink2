@@ -1,0 +1,247 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="zxx">
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Contact</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="/index">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Contact</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg="{% static 'img/svg/vector-collections.svg'%}"></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN CONTACTS -->
+            <div class="contacts-page">
+                <div class="contacts-page__main wrapper">
+                    <div class="contacts-page__cols">
+                        <div class="contacts-page__left">
+                            <form>
+                                <div class="contacts-form">
+                                    <div class="contacts-form__top">
+                                        <h2 class="contacts-form__title">Get In Touch</h2>
+                                        <p class="contacts-form__text">Write us your impressions of&nbsp;the&nbsp;purchase</p>
+                                    </div>
+                                    <div class="contacts-form__cols">
+                                        <div class="contacts-form__col">
+                                            <input class="text-input" type="text" placeholder="Enter your name">
+                                        </div>
+                                        <div class="contacts-form__col">
+                                            <input class="text-input" type="email" placeholder="Enter your email">
+                                        </div>                                        
+                                    </div>
+                                    <textarea class="textarea" placeholder="Enter your feedback"></textarea>
+                                    <button class="contacts-form__button button">
+                                        <span class="button__text">Send a message</span>
+                                    </button>                                    
+                                </div>
+                            </form>
+                        </div>
+                        <div class="contacts-page__right">
+                            <div class="contacts">
+                                <section class="contacts__item">
+                                    <div class="contacts__left">
+                                        <h3 class="contacts__title">contacts:</h3>
+                                    </div>
+                                    <div class="contacts__right">
+                                        <a class="contacts__number" href="tel:+1888444777 ">{{contact.mobile}} </a><br>
+                                        <a class="contacts__link" href="mailto:sitename@gmail.com">{{contact.email}}</a>
+                                    </div>
+                                </section>
+                                <section class="contacts__item">
+                                    <div class="contacts__left">
+                                        <h3 class="contacts__title">location:</h3>
+                                    </div>
+                                    <div class="contacts__right">
+                                        <span class="contacts__text">{{contact.address}}</span>
+                                    </div>
+                                </section> 
+                                <section class="contacts__item">
+                                    <div class="contacts__left">
+                                        <h3 class="contacts__title">find us:</h3>
+                                    </div>
+                                    <div class="contacts__right">
+                                        <div class="contacts__socials socials">
+                                            <ul class="socials__list">
+                                                <li class="socials__item">
+                                                    <a class="socials__link" href="{{soical.facebook}}">FB</a>
+                                                </li>
+                                                <li class="socials__item">
+                                                    <a class="socials__link" href="{{soical.instagram}}">INS</a>
+                                                </li> 
+                                                <li class="socials__item">
+                                                    <a class="socials__link" href="{{soical.twitter}}">TW</a>
+                                                </li>
+                                                <li class="socials__item">
+                                                    <a class="socials__link" href="{{soical.whatsapp_link}}">WT</a>
+                                                </li>                                                                           
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>                                                                 
+                            </div>
+                        </div>                    
+                    </div>
+                    <img class="contacts-page__vector" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/silver-thin-square.png'%}" alt="">
+                </div>
+                <div class="contacts-page__map">
+                    <div class="map" id="map"></div>
+                </div>
+            </div>
+            <!-- CONTACTS END -->
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="about.html">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="collections.html">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="shop.html">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="blog.html">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="contacts.html">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq.html">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->       
+
+    </div> 
+       
+
+   
+    {% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!doctype html>
+<html lang="zxx">
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Collection</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="#">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Collection</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg=></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-inner-top.svg" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN COLLECTIONS -->
+            <div class="collections-page wrapper">
+
+                <div class="collections collections_inner">
+
+                    <article class="season-sale season-sale_small">
+                        <div class="season-sale__all">
+                            <div class="season-sale__image" data-bg="https://via.placeholder.com/500x280"></div>
+                            <div class="season-sale__row">
+                                <div class="season-sale__cell">
+                                    <div class="season-sale__content">
+                                        <h4 class="season-sale__title">season <span>sale</span></h4>
+                                        <p class="season-sale__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla</p>
+                                        <a class="season-sale__more read-more" href="shop.html">Shop now</a>
+                                    </div>
+                                </div>
+                            </div>    
+                            <a class="season-sale__link" href="shop.html"></a>                           
+                        </div>
+                    </article>
+                    {%for a in venus%}                       
+                        <article class="collection collection_1">
+                            <div class="collection__all">
+                                <div class="collection__mob-image">
+                                    <a class="collection__image" data-bg="{{a.product_img.url}}" href="{% url 'collection:getcollection' pk=a.pk %}"></a>
+                                    <span class="collection__category">{{a.collection_name}}</span>  
+                                </div>
+                                <div class="collection__row">
+                                    <div class="collection__cell">
+                                        <div class="collection__content">
+                                            <span class="collection__subtitle category-subtitle"><b>new</b> {{a.collection_name}}</span>
+                                            <h4 class="collection__title">Fashion for <br>this {{a.collection_name}}</h4>
+                                            <a class="collection__more read-more" href="{% url 'collection:getcollection' pk=a.id %}">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <a class="collection__link" href="{% url 'collection:getcollection' pk=a.pk %}"></a>
+                            </div>
+                        </article>
+                    {%endfor%}
+                                              
+                </div> 
+
+                <div class="page-nav">
+                    {%if venus.has_previous%}
+                    <div class="page-nav__col">
+                        <a class="page-nav__button prev-button" href="?page={{venus.previous_page_number}}" aria-disabled=""></a>
+                    </div>
+                    {%endif%}
+                    <div class="page-nav__col">
+                        <ul class="page-nav__list">
+                            {%if venus.has_previous%}
+                            <li class="page-nav__item active">
+                                <a class="page-nav__link" href="?page={{venus.previous_page_number}}"">{{venus.previous_page_number}}</a>
+                            </li>
+                            {%endif%}
+
+                            <li class="page-nav__item active">
+                                <a class="page-nav__link" >{{venus.number}}</a>
+                            </li>
+                            {%if venus.has_next %}
+                            <li class="page-nav__item">
+                                <a class="page-nav__link" href="?page={{venus.next_page_number}}">{{venus.next_page_number}}</a>
+                            </li>
+                            {% endif %}                                                                 
+                        </ul>
+                    </div>
+                    {%if venus.has_next %}
+                    <div class="page-nav__col">
+                        <a class="page-nav__button next-button" href="?page={{venus.next_page_number}}"></a>
+                    </div>
+                    {% endif %}                                                
+                </div>
+         
+
+            </div>
+            <!-- COLLECTIONS END -->
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="about.html">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="collections.html">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="shop.html">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="blog.html">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="contacts.html">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq.html">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->      
+
+    </div> 
+       
+
+   
+    {% endblock content %}
+  
+
+</body>
+</html>

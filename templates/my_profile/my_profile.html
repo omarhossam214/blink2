@@ -1,0 +1,494 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!doctype html>
+<html lang="zxx">
+<head>
+  
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">My profile</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="/shop">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">My profile</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg="https://via.placeholder.com/800x400"></div>
+                        </div>
+                        -->                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-inner-top.svg" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN WISHLIST -->
+            <div class="profile-page wrapper">
+
+                <div class="profile-page__cols">
+
+                    <!-- BEGIN LEFT COLUMN -->
+                    <div class="profile-page__left">
+
+                        <div class="profile-nav tabs-nav js-line">
+                            <ul class="profile-nav__list tabs-nav__list tabs-nav__list_left">
+                                <li class="tabs-nav__item js-tabs-item js-line-item">
+                                    <a class="tabs-nav__link js-line-link js-tabs-link" href="#profile-tab-1">my profile</a>
+                                </li>
+                                <li class="tabs-nav__item js-line-item js-tabs-item active">
+                                    <a class="tabs-nav__link js-line-link js-tabs-link" href="#profile-tab-2">my orders</a>
+                                </li>
+                            </ul>
+                            <div class="tabs-nav__line js-line-element"></div>
+                        </div> 
+                        
+                        <!-- BEGIN TAB 1-->
+                        <div class="profile-tab js-tabs-content" id="profile-tab-1">
+
+                        </div>
+                        <!-- TAB 1 END -->
+    
+                         <!-- BEGIN TAB 2-->
+                         <div class="profile-tab js-tabs-content active" id="profile-tab-2">
+
+                            <div class="orders js-faq">
+
+                                {% for i in order %}
+                                <div class="order js-faq-item">
+                                    <div class="order__top">
+                                        <a class="order__button js-faq-button" href="javascript:void(0);">
+                                            <div class="order-header">
+                                                <div class="order-header__col">
+                                                    <span class="order-header__number">{{i.id}}</span>
+                                                </div>
+                                                <div class="order-header__col">
+                                                    <span class="order-header__date">{{i.data_order}}</span>
+                                                </div>
+                                                <div class="order-header__col">
+
+                                                    {% if i.complete == True and i.status == None %}
+                                                    <div class="order-header__status order-status green">
+                                                        <div class="order-status__cols">
+                                                            <div class="order-status__col">processing</div>
+                                                            <div class="order-status__col">
+                                                                <img class="order-status__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/order-icon_1.svg' %}" alt="" style="width:24px; height:19px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {%endif%}
+
+                                                    {% if i.complete == True and i.status == 'pendin' %}
+                                                    <div class="order-header__status order-status yellow">
+                                                        <div class="order-status__cols">
+                                                            <div class="order-status__col">being prepared</div>
+                                                            <div class="order-status__col">
+                                                                <img class="order-status__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/order-icon_1.svg' %}" alt="" style="width:24px; height:19px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {%endif%}
+
+                                                    {% if i.complete == True and i.status == 'on_delivery' %}
+                                                    <div class="order-header__status order-status orange">
+                                                        <div class="order-status__cols">
+                                                            <div class="order-status__col">On delivery</div>
+                                                            <div class="order-status__col">
+                                                                <img class="order-status__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/order-icon_1.svg' %}" alt="" style="width:24px; height:19px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {%endif%}
+
+                                                    {% if i.complete == True and i.status == 'finish' %}
+                                                    <div class="order-header__status order-status green">
+                                                        <div class="order-status__cols">
+                                                            <div class="order-status__col">Delivered</div>
+                                                            <div class="order-status__col">
+                                                                <img class="order-status__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static ' img/svg/order-icon_2.svg' %}" alt="" style="width:15px; height:19px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {%endif%}
+
+                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="order__hide js-faq-hide">
+                                        <div class="order__content">
+                                            <div class="order-table">
+                                                {% for a in i.orderitem_set.all %}
+                                                <article class="order-table__item">
+                                                    <div class="order-table__cols">
+                                                        <div class="order-table__col">
+                                                            <a class="order-table__image-link" href="/shop/{{a.product.id}}">
+                                                                <img class="order-table__image" src="{{a.product.product_img.url}}"  alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="order-table__col">
+                                                            <h4 class="order-table__title">
+                                                                <a class="order-table__link" href="/shop/{{a.product.id}}">{{a.product.Name}}</a>
+                                                            </h4> 
+                                                            <span class="order-table__text">x {{a.quantity}}</span>
+                                                        </div>
+                                                        
+                                                        <div class="order-table__col">
+                                                            <span class="order-table__price">$ {{a.product.price}}</span>
+                                                        </div>
+                                                                                                                                       
+                                                    </div>
+                                                </article>
+                                                {%endfor%}
+                                                <!--
+                                                <article class="order-table__item">
+                                                    <div class="order-table__cols">
+                                                        <div class="order-table__col">
+                                                            <a class="order-table__image-link" href="/product_page">
+                                                                <img class="order-table__image" src="lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/50x56" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="order-table__col">
+                                                            <h4 class="order-table__title">
+                                                                <a class="order-table__link" href="/product_page">Spray wrap skirt</a>
+                                                            </h4>
+                                                            <span class="order-table__text">x1</span>
+                                                        </div>
+                                                        <div class="order-table__col">
+                                                            <span class="order-table__price">$110.99</span>
+                                                        </div>                                                                                
+                                                    </div>
+                                                </article>
+                                                -->                                
+                                            </div>
+                                            <div class="order-total">
+
+                                                <div class="order-total__item">
+                                                    <div class="order-total__col">
+                                                        <span class="order-total__title">Order amount:</span>
+                                                    </div>
+                                                    <div class="order-total__col">
+                                                        <div class="order-total__price">$ {{i.total_price}}</div>
+                                                    </div>                                                    
+                                                </div>
+
+                                                <div class="order-total__item">
+                                                    <div class="order-total__col">
+                                                        <span class="order-total__title">delivery fees:</span>
+                                                    </div>
+                                                    <div class="order-total__col">
+                                                        <div class="order-total__price">$ {{i.d_fee}}</div>
+                                                    </div>                                                    
+                                                </div>
+
+                                                <div class="order-total__item">
+                                                    <div class="order-total__col">
+                                                        <span class="order-total__title">discount amount:</span>
+                                                    </div>
+                                                    <div class="order-total__col">
+                                                        <div class="order-total__price" style="color:red; font-weight: bold;"> - $ {{i.discount_amount}}</div>
+                                                    </div>                                                    
+                                                </div>
+
+                                                <div class="order-total__item">
+                                                    <div class="order-total__col">
+                                                        <span class="order-total__title">Total:</span>
+                                                    </div>
+                                                    <div class="order-total__col">
+                                                        <div class="order-total__price">$ {{i.total}}</div>
+                                                    </div>                                                    
+                                                </div>
+
+                                                <div class="order-total__item">
+                                                    <div class="order-total__col">
+                                                        <span class="order-total__title">Delivered to:</span>
+                                                    </div>
+                                                    {% for a in i.shippingaddress_set.all %}
+                                                    <div class="order-total__col">
+                                                        <div class="order-total__text">{{a.city}}, {{ a.address}}</div>
+                                                    </div>  
+                                                    {%endfor%}                                                  
+                                                </div>                                                
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                {%endfor%}
+                                
+
+                            </div>
+
+                            <div class="profile-tab__bottom">
+                                <div class="profile-tab__col">
+                                    <button class="profile-tab__button button">
+                                        <span class="button__text">Delete history</span>
+                                    </button>
+                                </div>
+                                <div class="profile-tab__col">
+                                    <div class="profile-tab__checkbox checkbox">
+                                        <label class="checkbox__label">
+                                            <input class="checkbox__input" type="checkbox">
+                                            <span class="checkbox__icon"></span>
+                                            <span class="checkbox__text">Show only active</span>
+                                        </label>
+                                    </div>                        
+                                </div>                    
+                            </div>                            
+    
+                        </div>
+                         <!-- TAB 2 END -->
+
+                    </div>
+                    <!-- LEFT COLUMN END -->
+
+                    <!-- BEGIN RIGHT COLUMN -->
+                    <aside class="profile-page__right">
+
+                        <form>
+                            <section class="newsletter-block">
+                                <h3 class="newsletter-block__title">Newsletter</h3>
+                                <p class="newsletter-block__text">Subscribe to be the first to hear about deals, offers and upcoming collections.</p>
+                                <input class="newsletter-block__input text-input" type="email" placeholder="Enter your email">
+                                <button class="newsletter-block__button button">
+                                    <span class="button__text">Subscribe</span>
+                                </button>
+                            </section>
+                        </form>
+
+                        <section class="sale-banner sale-banner_changed">
+                            <div class="sale-banner__all">
+                                <div class="sale-banner__row">
+                                    <div class="sale-banner__cell">
+                                        <div class="sale-banner__content">
+                                            <h4 class="sale-banner__title">Season <span>sale</span></h4>
+                                            <p class="sale-banner__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla</p>
+                                            <a class="sale-banner__more read-more" href="shop">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sale-banner__border"></div>
+                            <div class="sale-banner__image" data-bg="https://via.placeholder.com/720x800"></div>
+                            <a class="sale-banner__link" href="shop"></a>
+                        </section> 
+                        
+                        <section class="widget">
+                            <h3 class="widget__title">Reviewed by you</h3>
+                            <div class="short-reviews short-reviews_full">
+                                {%for i in products%}
+                                <article class="reviewed">
+                                    <div class="reviewed__cols">
+                                        <div class="reviewed__left">
+                                            <a class="reviewed__image-bg" href="/shop/{{i.id}}/">
+                                                <img class="reviewed__image" src="{{i.imageURL}}" alt="">                          
+                                            </a>
+                                        </div>
+                                        <div class="reviewed__right">
+                                            <h4 class="reviewed__title">
+                                                <a class="reviewed__link" href="/shop/{{i.id}}/">{{i.Name}}</a>
+                                            </h4>
+                                            <span class="reviewed__price">{{i.price}} $</span>
+                                            <!--
+                                            <span class="reviewed__old-price">$52.99</span>
+                                            -->
+                                        </div>                                        
+                                    </div>
+                                </article>
+                                {%endfor%}
+                                <!--
+                                <article class="reviewed">
+                                    <div class="reviewed__cols">
+                                        <div class="reviewed__left">
+                                            <a class="reviewed__image-bg" href="/product_page">
+                                                <img class="reviewed__image" src="https://via.placeholder.com/75x85" alt="">                          
+                                            </a>
+                                        </div>
+                                        <div class="reviewed__right">
+                                            <h4 class="reviewed__title">
+                                                <a class="reviewed__link" href="/product_page">Warm casual sweater</a>
+                                            </h4>
+                                            <span class="reviewed__price">$65.99</span>
+                                        </div>                                        
+                                    </div>
+                                </article>
+                                <article class="reviewed">
+                                    <div class="reviewed__cols">
+                                        <div class="reviewed__left">
+                                            <a class="reviewed__image-bg" href="/product_page">
+                                                <img class="reviewed__image" src="https://via.placeholder.com/75x85" alt="">                          
+                                            </a>
+                                        </div>
+                                        <div class="reviewed__right">
+                                            <h4 class="reviewed__title">
+                                                <a class="reviewed__link" href="/product_page">Textured turtleneck with zip</a>
+                                            </h4>
+                                            <span class="reviewed__price">$45.99</span>
+                                        </div>                                        
+                                    </div>
+                                </article>
+                                -->                                                                
+                            </div>
+                        </section>                       
+
+                    </aside>
+                    <!-- RIGHT COLUMN END -->  
+
+                </div>
+
+            </div>
+            <!-- WISHLIST END -->         
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://www.facebook.com/">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://twitter.com/">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://www.instagram.com/">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/about">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/collection">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/shop">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/blog">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/contacts">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/faq">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-footer-left.svg' %}" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-footer-right.svg' %}" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->     
+
+    </div> 
+       
+    <script src="{% static 'js/libs/jquery-3.5.1.min.js' %}"></script> 
+    <script src="{% static 'js/libs/jquery-migrate-1.4.1.min.js' %}"></script>   
+    <script src="{% static 'js/main.js' %}"></script>
+    
+{% endblock content %}
+
+
+</body>
+</html>

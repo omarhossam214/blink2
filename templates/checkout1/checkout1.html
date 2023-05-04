@@ -1,0 +1,528 @@
+
+{%extends 'base/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="zxx">
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Checkout</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="index">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Checkout</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg="https://via.placeholder.com/800x400"></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-inner-top.svg" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN CHECKOUT -->
+            <div class="checkout-page wrapper">
+
+                <div class="checkout-nav">
+                    <div class="checkout-nav__item active current">
+                        <span class="checkout-nav__text">order details</span>
+                    </div>
+                    <div class="checkout-nav__item">
+                        <span class="checkout-nav__text">payment method</span>
+                    </div>
+                    <div class="checkout-nav__item">
+                        <span class="checkout-nav__text">finish</span>
+                    </div>                                        
+                </div>
+
+                <form id="test">
+                    <div class="checkout-page__cols">
+
+                        <!-- BEGIN LEFT COLUMN -->
+                    
+                        <div class="checkout-page__left" id="shipping-info">
+                            <!--
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">Submit</button>
+                            </form>
+                            -->
+
+                            <!--------------------------------------------------------------->
+                            
+                                    <section class="checkout-form" >
+                                        {% if authenticated == False %}
+                                        <h2 class="checkout-form__title" >Contact person</h2>
+                                        <div class="checkout-form__cols">
+                                                <div class="checkout-form__col">
+                                                    <input class="text-input" type="text" name="name" placeholder="Enter your name" value="{{customer.name}}">
+                                                </div>
+                                            <div class="checkout-form__col">
+                                                <input class="text-input" type="text" placeholder="Enter last name" name="last_name" value="{{customer.last_name}}">
+                                            </div>                                    
+                                        </div>
+                                
+                                        <div class="checkout-form__cols">
+                                            <div class="checkout-form__col">
+                                                <input class="text-input" type="tel" placeholder="Enter your phone" name="phone" value="{{customer.phone}}">
+                                            </div>
+                                            <div class="checkout-form__col">
+                                                <input class="text-input" type="email" placeholder="Enter your email" name="email" value="{{customer.email}}">
+                                            </div>                                    
+                                        </div> 
+                                        {% endif %}
+                                        <!--
+                                        <div class="checkout-form__checkboxes">
+                                            <div class="checkout-form__checkbox checkbox">
+                                                <label class="checkbox__label">
+                                                    <input class="checkbox__input" type="checkbox">
+                                                    <span class="checkbox__icon"></span>
+                                                    <span class="checkbox__text">I agree with the <a href="#">privacy policy</a></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        -->
+                                                                                                                
+                                    </section>
+                                    
+                                    <section class="checkout-form">
+                                        <h2 class="checkout-form__title">Delivery address</h2>
+                                        <div class="checkout-form__cols">
+                                            <div class="checkout-form__col">
+                                                <div class="selectize">
+                                                    <select class="js-selectize-country select-test" name="city">
+                                                        {% for i in area %}
+
+                                                          <option  value="{{ i.city_name }} --- ${{ i.fee }}" data-fee="{{ i.fee }}">
+                                                            {{ i.city_name }}
+                                                          </option>
+                                                          
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--
+                                            <div class="checkout-form__col">
+                                                <div class="selectize">
+                                                    <select class="js-selectize-country">
+                                                        <option>City name 1</option>
+                                                        <option >City name 2</option>
+                                                        <option selected>City name 3</option>
+                                                        <option>City name 4</option>
+                                                        <option>City name 5</option>
+                                                        <option>City name 6</option>
+                                                        <option>City name 7</option>
+                                                        <option>City name 8</option>
+                                
+                                 
+                                                        <option>City name 9</option>
+                                                        <option>City name 10</option>
+                                                    </select>
+                                                </div>       
+                                            </div>
+                                            -->
+                                                                             
+                                        </div>
+                                        <input class="text-input" type="text" placeholder="Enter the delivery address" name="address" value="{{shipping_address.address}}">
+                                        <div class="checkout-form__cols">
+                                            <!--
+                                            <div class="checkout-form__col">
+                                                <input class="text-input" type="text" placeholder="Desired delivery day">
+                                            </div>
+                                            <div class="checkout-form__col">
+                                                <input class="text-input" type="text" placeholder="Desired delivery time">      
+                                            </div>
+                                            -->                                    
+                                        </div>
+                                        <textarea class="checkout-form__textarea textarea" placeholder="Enter your comment to the order" name="note">{{shipping_address.note}}</textarea>
+                                        
+                                        <div class="checkout-form__checkboxes">
+                                            {% if authenticated == False %}
+                                            <div class="checkout-form__checkbox checkbox">
+                                                <label class="checkbox__label">
+                                                    <input class="checkbox__input" type="checkbox">
+                                                    <span class="checkbox__icon"></span>
+                                                    <span class="checkbox__text">Create an account</span>
+                                                </label>
+                                            </div>
+                                            {% endif %}
+                                            <!-- <div class="checkout-form__checkbox checkbox">
+                                                <label class="checkbox__label">
+                                                    {% if shipping_address.call == True %}
+                                                    <input class="checkbox__input" type="checkbox" name="call" checked value="True">
+                                                    {% else %}
+                                                    <input class="checkbox__input" type="checkbox" name="call" value="False">
+                                                    {% endif %}
+
+                                                    <span class="checkbox__icon"></span>
+                                                    <span class="checkbox__text">Don't call me, I'm sure of the order</span>
+                                                </label>
+                                            </div>                                                                           -->
+                                        </div>
+                                        
+                                        <!-- <div class="captcha">
+                                            <img alt="" src="{% static 'img/examples/captcha.png' %}">
+                                        </div> -->
+                                        <form id="test">
+
+                                            <div class="checkout-form__buttons">
+                                                <div class="checkout-form__button-col">
+                                                    <a class="checkout-form__back back-button" href="/cart">return</a>
+                                                </div>
+                                                <div class="checkout-form__button-col">
+                                                    <button type="submit" class="button checkout-form__button" id="submit-form">
+                                                        <span class="button__text">continue</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="checkout-form__buttons">
+                                                <div class="checkout-form__button-col" hidden>
+                                                    <button type="submit" class="button checkout-form__button" id="form-button">
+                                                        <span class="button__text">Payment</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </section> 
+
+                            
+                    
+                            
+                            <!--------------------------------------------------------------->
+
+                        </div>
+                        <!-- LEFT COLUMN END -->
+
+                        <!-- BEGIN RIGHT COLUMN -->
+                        <aside class="checkout-page__right">
+                            <section class="your-order">
+                                <h3 class="your-order__title">Your order</h3>
+                                <div class="side-cart">
+                                    {%for i in items%}
+                                    <article class="side-cart__item">
+                                        <div class="side-cart__cols">
+                                            <div class="side-cart__left">
+                                                <a class="side-cart__image-link" href="{%url 'item:detail' i.product.id %}">
+                                                    <img class="side-cart__image" src="{{i.product.imageURL}}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="side-cart__right">
+                                                <h4 class="side-cart__title">
+                                                    <a class="side-cart__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.size}})</a>
+                                                </h4>
+                                                <span class="side-cart__text">x {{i.quantity}}</span>
+                                                <div class="side-cart__prices">
+                                                    <span class="side-cart__price">$ {{ i.product.price }}</span>
+                                                    <!--
+                                                    <span class="side-cart__old-price">$52.99</span>
+                                                    -->
+                                                </div>
+                                            </div>                                        
+                                        </div>
+                                    </article>
+                                    {%endfor%}
+                                    <!--
+                                    <article class="side-cart__item">
+                                        <div class="side-cart__cols">
+                                            <div class="side-cart__left">
+                                                <a class="side-cart__image-link" href="product_page.html">
+                                                    <img class="side-cart__image" src="https://via.placeholder.com/53x60" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="side-cart__right">
+                                                <h4 class="side-cart__title">
+                                                    <a class="side-cart__link" href="product_page.html">Spray wrap skirt</a>
+                                                </h4>
+                                                <span class="side-cart__text">x1</span>
+                                                <div class="side-cart__prices">
+                                                    <span class="side-cart__price">$110.99</span>
+                                                </div>
+                                            </div>                                        
+                                        </div>
+                                    </article>
+                                    -->                                
+                                </div>
+                                <ul class="your-order__list">
+                                    <li class="your-order__item">
+                                        <div class="your-order__col">
+                                            <span class="your-order__text">Оrder price</span>
+                                        </div>
+                                        <div class="your-order__col">
+                                            <span class="your-order__price">$ {{order.get_cart_total}}</span>
+                                        </div>                                
+                                    </li>
+                                    <li class="your-order__item">
+                                        <div class="your-order__col">
+                                            <span class="your-order__text">Discount for promo&nbsp;code</span>
+                                        </div>
+                                        <div class="your-order__col">
+                                            <span class="your-order__text promo-field" id="promo-value">{{order.promocode}}</span>
+                                            {%if order.promocode != None%}
+                                            <span class="your-order__text promo-field" id="promo-value" style="color:red; font-weight: bold;">- {{order.get_cart_discount}}</span>
+                                            {%endif%}
+                                        </div>                                
+                                    </li>
+                                    <li class="your-order__item">
+                                        <div class="your-order__col">
+                                            <span class="your-order__text">Delivery&nbsp;&nbsp;<span>(Aug 02 at 16:00)</span></span>
+                                        </div>
+                                        <div class="your-order__col">
+                                            <span class="your-order__fee">$0</span>
+                                        </div>                                
+                                    </li>                                                        
+                                </ul>
+                                <div class="your-order__bottom">
+                                    <div class="your-order__col">
+                                        <span class="your-order__bottom-text">Total</span>
+                                    </div>
+                                    <div class="your-order__col">
+                                        <span class="your-order__bottom-price">${{order.get_cart_total_discount}}</span>
+                                    </div>                            
+                                </div>
+                            </section>                        
+                        </aside>
+                        <!-- RIGHT COLUMN END -->                    
+
+                    </div>
+                </form>
+
+            </div>
+            <!-- CHECKOUT END -->           
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+         
+        <!-- BEGIN FOOTER -->
+        <footer class="footer"> 
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.facebook}}">FB</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.twitter}}">TW</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.instagram}}">INS</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.whatsapp_link}}">WT</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="about">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="collection">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="shop">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="blog">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="contacts">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->    
+
+    </div>
+
+    <script type="text/javascript">
+
+        var total = '{{order.get_cart_total}}'
+        var form = document.getElementById('test')
+
+        const optionText = form.city.value;
+        const [cityName, fee] = optionText.split(' --- ');
+        
+
+        
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+
+            const optionText = form.city.value;
+            const [cityName, fee] = optionText.split(' --- ');
+            console.log(cityName); // Output: "6 of october"
+            
+            var tryyyy = parseFloat(total) + parseFloat(fee.replace('$', ''))
+            console.log(tryyyy)
+
+            console.log('payment zby zby ')
+            console.log(user)
+            
+            console.log(form.city.value)
+            var userFormData = {
+                "name":null,
+                "email":null,
+                "phone":null,
+                "total":parseFloat(total),
+                'fee':parseFloat(fee.replace('$', ''))
+            }
+
+            var shippingInfo = {
+                "address":null,
+                "note":null,
+                "city":null       
+            }
+
+            shippingInfo.address = form.address.value
+            shippingInfo.city = cityName
+            shippingInfo.call = form.call.value
+            shippingInfo.note = form.note.value
+
+
+            
+            if(user == 'AnonymousUser'){
+                userFormData.name = form.name.value
+                userFormData.email = form.email.value
+                userFormData.phone = form.phone.value
+
+            }
+
+            var url = 'checkout1/process_order'
+            fetch(url,{
+                method:"POST",
+                headers:{
+                    "Content-Type":'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                window.location.href = '/shop'
+
+            })
+
+            
+        })
+
+
+    </script>
+     
+    <script>
+        const select = document.querySelector('.js-selectize-country');
+        select.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedValue = selectedOption.value;
+        console.log(selectedValue);
+        });
+
+    </script>
+
+    
+    
+
+
+
+    {% endblock content %}
+ 
+ 
+</body>
+</html>

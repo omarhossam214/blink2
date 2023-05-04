@@ -1,0 +1,594 @@
+{%extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+        
+        <!-- MOBILE NAVIGATION -->
+        <div class="hide-mob js-mob-hide">
+            <div class="hide-mob__bg">
+                <button class="hide-mob__close close-button js-mob-close"></button>  
+                <div class="hide-mob__mask js-mob-close"></div>
+                <ul class="mob-nav">
+                    <li class="mob-nav__item">
+                        <a class="mob-nav__link" href="/index">Home</a>
+                    </li>
+                    <li class="mob-nav__item js-slidedown">
+                        <a class="mob-nav__link js-slidedown-button" href="/about">
+                            <span class="mob-nav__arrow">Pages</span>
+                        </a>
+                        <div class="slide-nav js-slidedown-hide">
+                            <ul class="slide-nav__list">
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/login">Login</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/registration">Registration</a>
+                                </li>                                                                
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/about">About us</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/collection">Collections</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/faq">FAQ</a>
+                                </li>  
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/post">Post</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="#">404</a>
+                                </li>
+                            </ul>                                                              
+                        </div>
+                    </li>
+                    <li class="mob-nav__item js-slidedown">
+                        <a class="mob-nav__link js-slidedown-button" href="#">
+                            <span class="mob-nav__arrow">Shop</span>
+                        </a>
+                        <div class="slide-nav js-slidedown-hide">
+                            <ul class="slide-nav__list">
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/my_profile">Profile</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="#">Catalog</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/product_page">Product page</a>
+                                </li>                                
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/cart">Cart</a>
+                                </li> 
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/checkout1">Checkout 1</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/checkout2">Checkout 2</a>
+                                </li>
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/checkout3">Checkout 3</a>
+                                </li>                                                                                                
+                                <li class="slide-nav__item">
+                                    <a class="slide-nav__link" href="/wishlist">Wishlist</a>
+                                </li>                                                                     
+                            </ul>                                                              
+                        </div>
+                    </li>
+                    <li class="mob-nav__item">
+                        <a class="mob-nav__link" href="/blog">Blog</a>
+                    </li>
+                    <li class="mob-nav__item">
+                        <a class="mob-nav__link" href="/contacts">Contact</a>
+                    </li>                                                                                                
+                </ul>
+                <div class="hide-mob__socials">
+                    <ul class="socials__list socials__list_center">
+                        <li class="socials__item">
+                            <a class="socials__link" href="https://www.facebook.com/">Fb</a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="socials__link" href="https://twitter.com/">Tw</a>
+                        </li> 
+                        <li class="socials__item">
+                            <a class="socials__link" href="https://www.instagram.com/">Ins</a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="socials__link" href="#">Pt</a>
+                        </li>                                                                           
+                    </ul>
+                </div>                    
+            </div>              
+        </div>
+        <!-- MOBILE NAVIGATION END -->         
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Shop</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="#">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Shop</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg=""></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-inner-top.svg' %}" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN SHOP -->
+            <div class="shop wrapper">
+                <div class="shop__cols">
+
+                    <!-- BEGIN LEFT COLUMN -->
+                    <aside class="shop__left">
+
+                        <form>
+                            <div class="search-form">
+                                <input class="search-form__input" type="email" placeholder="Search">
+                                <button class="search-form__button" type="submit"></button>
+                            </div>
+                        </form>   
+
+                        <div class="filters">
+                            <section class="widget js-slidedown">
+                                <h2 class="widget__title widget__title_hide-mob">Categories</h2>
+                                <a class="widget__button js-slidedown-button" href="javascript:void(0);">Categories</a>
+                                <div class="widget__hide js-slidedown-hide">
+                                    <ul class="side-nav">
+                                        <li class="side-nav__item">
+                                            <a class="side-nav__link" href="/shop" {% if request.path == '/shop' %} style="color: red;" {% endif %}>all category</a>
+                                            {% for cat in categories %}
+                                                <a class="side-nav__link " href="{%url 'Category:cat_detail' cat.id %}" {% if request.path == cat.get_absolute_url %} style="color: red;"  active {% endif %}>{{ cat.Category_name }}</a>
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+    
+                            <section class="widget js-slidedown">
+                                <h3 class="widget__title widget__title_hide-mob">Price</h3>
+                                <a class="widget__button js-slidedown-button" href="javascript:void(0);">Price</a>
+                                <div class="widget__hide js-slidedown-hide">
+                                    <div class="range">
+                                        <div class="range__slider" id="range-slider"></div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="widget js-more js-slidedown">
+                                <h3 class="widget__title widget__title_hide-mob">Colors</h3>
+                                <a class="widget__button js-slidedown-button" href="javascript:void(0);">Colors</a>
+                                <div class="widget__hide js-slidedown-hide">
+                                    <div class="checkboxes">
+                                        {% for i in color %}
+                                        <div class="checkbox">
+                                            <label class="checkbox__label">
+                                                <input class="checkbox__input" type="checkbox" value="{{i.id}}" checked>
+                                                <span class="checkbox__icon"></span>
+                                                <span class="checkbox__text" >{{i.Color_name}}</span>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                          
+                                    </div>
+                                    <a class="widget__deploy deploy-button js-more-button" href="#">Deploy</a>
+                                </div>
+                            </section>
+                            <button class="apply-button button">
+                                <span class="button__text">Apply filter</span>
+                            </button>                                
+                        </div>  
+                        
+                        <div class="desktop-items js-from-2">
+                            <div class="side-items js-content-2">
+                                <section class="widget">
+                                    <h3 class="widget__title">Reviewed by you</h3>
+                                    <div class="short-reviews">
+                                        {%for i in review_by_you%}
+                                        <article class="reviewed">
+                                            <div class="reviewed__cols">
+                                                <div class="reviewed__left">
+                                                    <a class="reviewed__image-bg" href="/shop/{{i.id}}/">
+                                                        <img class="reviewed__image" src="{{i.imageURL}}" alt="">                          
+                                                    </a>
+                                                </div>
+                                                <div class="reviewed__right">
+                                                    <h4 class="reviewed__title">
+                                                        <a class="reviewed__link" href="/shop/{{i.id}}/">{{i.Name}}</a>
+                                                    </h4>
+                                                    <span class="reviewed__price">{{i.price}} $</span>
+                                                    <!--
+                                                    <span class="reviewed__old-price">$52.99</span>
+                                                    -->
+                                                </div>                                        
+                                            </div>
+                                        </article>
+                                        {%endfor%}
+                                                                                                
+                                    </div>
+                                </section>                                 
+                                <article class="sale-banner">
+                                    <div class="sale-banner__all">
+                                        <div class="sale-banner__row">
+                                            <div class="sale-banner__cell">
+                                                <div class="sale-banner__content">
+                                                    <h4 class="sale-banner__title">Season <span>sale</span></h4>
+                                                    <p class="sale-banner__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla</p>
+                                                    <a class="sale-banner__more read-more" href="/shop">Shop now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sale-banner__border"></div>
+                                    <div class="sale-banner__image" data-bg="https://via.placeholder.com/548x400"></div>
+                                    <a class="sale-banner__link" href="/shop"></a>
+                                </article>
+                            </div>
+                        </div>
+
+                    </aside>
+                    <!-- LEFT COLUMN END -->  
+                    
+                    <!-- BEGIN RIGHT COLUMN -->
+                    <div class="shop__right">
+
+                        <div class="shop-panel">
+                            <div class="shop-panel__left">
+                                <span class="shop-panel__text">There are <b>{{product_num}}</b> products in&nbsp;this&nbsp;category <b>{{collection_name}}</b> </span>
+                            </div>
+                            <div class="shop-panel__right">
+                                <div class="shop-panel__select select select_1">
+                                    <select class="js-formstyler collection-test" onchange="redirectSelectedOption()" >
+                                        <option value="/shop">By collection</option>
+                                        <option value="/shop"> - all collection</option>
+                                        {% for i in collection %}   
+                                            <option value="{% url 'collection:getcollection' pk=i.id %}">{{i.collection_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="inner-catalog">
+                            {%for i in venus%}
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="{%url 'item:detail' i.id %}">
+                                        <img class="short-item__image" src={{i.imageURL}} alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                {% if i.old_price %}
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                                {%endif%}
+                                                {% if i.stock == 0%}
+                                                <span class="item-tag item-tag_red">OUT of stock</span>
+                                                {%endif%}
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="{%url 'item:detail' i.id %}">{{i.Name}}</a>
+                                        <a class="short-item__link" href="{%url 'item:detail' i.id %}">{{i.describtion}}</a>
+                                    </h4>
+                                    <span class="short-item__price">{{i.price}} EGP</span>
+                                    {% if i.old_price %}
+                                    <span class="short-item__old-price">{{i.old_price}} EGP</span>
+                                    {%endif%}
+                                    
+                                </div>
+                            </article>
+                            {%endfor%}
+                            
+                        </div>
+      
+                        <div class="page-nav">
+                            {%if venus.has_previous%}
+                            <div class="page-nav__col">
+                                <a class="page-nav__button prev-button" href="?page={{venus.previous_page_number}}" aria-disabled=""></a>
+                            </div>
+                            {%endif%}
+                            <div class="page-nav__col">
+                                <ul class="page-nav__list">
+                                    {%if venus.has_previous%}
+                                    <li class="page-nav__item active">
+                                        <a class="page-nav__link" href="?page={{venus.previous_page_number}}"">{{venus.previous_page_number}}</a>
+                                    </li>
+                                    {%endif%}
+
+                                    <li class="page-nav__item active">
+                                        <a class="page-nav__link" >{{venus.number}}</a>
+                                    </li>
+                                    {%if venus.has_next %}
+                                    <li class="page-nav__item">
+                                        <a class="page-nav__link" href="?page={{venus.next_page_number}}">{{venus.next_page_number}}</a>
+                                    </li>
+                                    {% endif %}                                                                 
+                                </ul>
+                            </div>
+                            {%if venus.has_next %}
+                            <div class="page-nav__col">
+                                <a class="page-nav__button next-button" href="?page={{venus.next_page_number}}"></a>
+                            </div>
+                            {% endif %}                                                
+                        </div>
+                 
+                    </div>
+                    <!-- RIGHT COLUMN END -->                
+
+                </div>
+
+                <div class="mob-items js-to-2"></div>
+             
+            </div>
+            <!-- SHOP END -->
+
+            <!-- BEGIN NEWSLETTER -->
+            <aside class="newsletter">
+                <div class="newsletter__banner" data-bg="https://via.placeholder.com/1680x450">
+                    <div class="newsletter__main">
+                        <div class="newsletter__bg">
+                            <div class="newsletter__max">
+                                <h4 class="newsletter__title">Newsletter</h4>
+                                <p class="newsletter__text">Be the first to hear about deals,  offers and upcoming collections.</p>
+                                <form>
+                                    <div class="newsletter-form">
+                                        <div class="newsletter-form__left">
+                                            <input class="newsletter-form__input text-input" type="email" placeholder="Enter your email">
+                                        </div>
+                                        <div class="newsletter-form__right">
+                                            <button class="newsletter-form__button button">
+                                                <span class="button__text">Subscribe</span>
+                                            </button>
+                                        </div>                                        
+                                    </div>
+                                </form>
+                            </div>
+                            <img class="newsletter__vector" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- NEWSLETTER END -->
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://www.facebook.com/">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://twitter.com/">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="https://www.instagram.com/">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/about">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/collection">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/shop">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/blog">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/contacts">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/faq">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-footer-left.svg'%}" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-footer-right.svg'%}" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->    
+
+    </div>
+
+    
+    <script>
+        function redirectSelectedOption() {
+            var divElement = document.querySelector('.collection-test');
+            var selectElement = divElement.querySelector('select');
+            var selectedValue = selectElement.value;
+            console.log(selectedValue);
+            window.location.href = selectedValue
+        }
+    </script>
+    <script>
+        var select = document.querySelector('.collection-test');
+        var options = {% for i in collection %}'<option value="{% url 'collection:getcollection' pk=i.id %}">{{i.collection_name}}</option>'{% endfor %};
+        
+        options.forEach(function(option) {
+          select.innerHTML += option;
+        });
+    </script> 
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            var minMaxValues = [];
+    
+            if ($("#range-slider").length) {
+                var rangeSlider = document.getElementById("range-slider");
+                var maxPrice = {{ max_price }};
+                setTimeout(function() {
+                    noUiSlider.create(rangeSlider, {
+                        range: {
+                            min: 1,
+                            max: maxPrice
+                        },
+                        step: 1,
+                        start: [0, maxPrice],
+                        format: wNumb({
+                            decimals: 0,
+                            prefix: "$"
+                        }),
+                        tooltips: true,
+                        connect: true
+                    });
+    
+                    // listen for changes to the slider handles
+                    rangeSlider.noUiSlider.on('update', function() {
+                        var handles = document.querySelectorAll('.noUi-handle');
+                        minMaxValues = [];
+                        handles.forEach(function(handle) {
+                            var min = handle.getAttribute('aria-valuemin');
+                            var max = handle.getAttribute('aria-valuemax');
+                            minMaxValues.push(min + '-' + max);
+                        });
+                    });
+                }, 1000);
+            }
+    
+            // add click event listener to the "Apply filter" button
+            $(".apply-button").click(function() {
+                // get all checkboxes with the class "checkbox__input"
+                var checkboxes = document.querySelectorAll(".checkbox__input");
+                var checkedCheckboxes = [];
+                // loop through the checkboxes and log out the value of the checked ones
+                checkboxes.forEach(function(checkbox) {
+                    if (checkbox.checked) {
+                        checkedCheckboxes.push(checkbox.value);
+                    }
+                });
+    
+                var filterInfo = {
+                    "price":minMaxValues,
+                    "color":checkedCheckboxes,
+                }
+    
+                console.log(filterInfo);
+    
+                var url = 'http://127.0.0.1:8000/shop/apply_filter/';
+                fetch(url,{
+                    method:"POST",
+                    headers:{
+                        "Content-Type":'application/json',
+                        'X-CSRFToken':csrftoken,
+                    },
+                    body:JSON.stringify(filterInfo)
+                })
+                .then((data) => {
+                    // navigate to the /shop/filter/ URL
+                    window.location.href = 'http://127.0.0.1:8000/shop/filter/';
+                });
+            });
+        });
+    </script>
+
+     
+{% endblock %}
+
+  

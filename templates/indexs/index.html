@@ -1,0 +1,1563 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="zxx">
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN FIRST SCREEN -->
+            <div class="first-screen">
+                <div class="first-screen__left">
+                    <div class="first-screen__mob-cols">
+                        <div class="first-screen__mob-col">
+                            <div class="slider-count">
+                                <span class="slider-count__text js-main-count"><span>1</span>/3</span>
+                            </div>  
+                        </div>
+                        <div class="first-screen__mob-col">
+                            <ul class="first-screen__socials side-socials">
+                                <li class="side-socials__item">
+                                    <a class="side-socials__link" href="{{social.facebook}}">FB</a>
+                                </li>
+                                <li class="side-socials__item">
+                                    <a class="side-socials__link" href="{{social.twitter}}">TW</a>
+                                </li>   
+                                <li class="side-socials__item">
+                                    <a class="side-socials__link" href="{{social.instagram}}">INS</a>
+                                </li>
+                                <li class="side-socials__item">
+                                    <a class="side-socials__link" href="{{social.whatsapp_link}}">WT</a>
+                                </li>
+                            </ul>                        
+                        </div>
+                        <div class="first-screen__mob-col js-to-1"></div>                            
+                    </div>                                                     
+                </div>
+                <div class="first-screen__center">
+                    <div class="main-slider">
+                        <div class="main-slider__list-wrap">
+                            <div class="main-slider__list js-main-slider loaded">
+                                <div class="main-slider__item js-slide active">
+                                    <div class="main-slider__max">
+                                        <div class="main-slider__row">
+                                            <div class="main-slider__cell">
+                                                <div class="main-slider__content">
+                                                    <span class="main-slider__subtitle category-subtitle"><b>new</b> collection</span>
+                                                    <h2 class="main-slider__title">meet New <br>Fashion week</h2>
+                                                    <a class="main-slider__button button" href="shop">
+                                                        <span class="button__text">Shop now</span>
+                                                    </a>
+                                                </div>
+                                                <div class="main-slider__image-wrap">
+                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/1.jpeg' %}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main-slider__item js-slide">
+                                    <div class="main-slider__max">
+                                        <div class="main-slider__row">
+                                            <div class="main-slider__cell">
+                                                <div class="main-slider__content">
+                                                    <span class="main-slider__subtitle category-subtitle"><b>new</b> collection</span>
+                                                    <h2 class="main-slider__title">meet New <br>Fashion week</h2>
+                                                    <a class="main-slider__button button" href="shop">
+                                                        <span class="button__text">Shop now</span>
+                                                    </a>
+                                                </div>
+                                                <div class="main-slider__image-wrap">
+                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/2.jpeg'%}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main-slider__item js-slide">
+                                    <div class="main-slider__max">
+                                        <div class="main-slider__row">
+                                            <div class="main-slider__cell">
+                                                <div class="main-slider__content">
+                                                    <span class="main-slider__subtitle category-subtitle"><b>new</b> collection</span>
+                                                    <h2 class="main-slider__title">meet New <br>Fashion week</h2>
+                                                    <a class="main-slider__button button" href="shop">
+                                                        <span class="button__text">Shop now</span>
+                                                    </a>
+                                                </div>
+                                                <div class="main-slider__image-wrap">
+                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/7.jpeg'%}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                                                                   
+                            </div>
+                        </div>
+                        <div class="main-slider__bg-wrap">
+                            <img class="main-slider__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-first-screen.svg' %}" alt="">
+                            <div class="scroll-down">
+                                <span class="scroll-down__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="first-screen__right js-from-1">
+                    <div class="slider-dots dots-1 js-main-dots"></div>
+                    <div class="slider-arrows arrows-1 js-main-arrows js-content-1"></div>
+                </div>
+            </div>
+            <!-- FIRST SCREEN END -->
+            <!-- BEGIN ADVANTAGES -->
+
+    <div class="advantages wrapper">
+        <div class="advantages__list">
+            {%for i in promo%}
+            <article class="advantage">
+                <div class="advantage__content">
+                  <div class="advantage__icon-wrap">
+                    <img class="advantage__icon" src="{{i.image.url}}" alt="">
+                  </div>
+                  <h4 class="advantage__title" style="font-family: Fantasy, cursive;">{{i.code}}</h4>
+                  <div class="advantage__line-container">
+                    <div class="advantage__line">{{i.description}}</div>
+                    <div class="advantage__line-note"></div>
+                  </div>
+                </div>
+                <img class="advantage__bg advantage__bg-1" src="{% static 'img/silver-thin-square.png'%}" alt="">
+              </article>
+            {%endfor%}
+        </div>
+    </div>
+    <!-- ADVANTAGES END -->
+
+            <!-- BEGIN COLLECTION -->
+            <section class="collection-block wrapper">
+                <div class="collection-block__content">
+                    <div class="collections">
+                        <div class="collections__top">
+                            <div class="collections__max">
+                                <h3 class="collection-title">
+                                    <span class="collection-title__count">{{product_num}}</span>
+                                    <span class="collection-title__plus">+</span>
+                                    <span class="collection-title__text">Products for you</span>
+                                </h3>
+                            </div>
+                        </div> 
+                        {%for a in collection%}                       
+                        <article class="collection collection_1">
+                            <div class="collection__all">
+                                <div class="collection__mob-image">
+                                    <a class="collection__image" data-bg="{{a.product_img.url}}" href="#"></a>
+                                    <span class="collection__category">{{a.collection_name}}</span>  
+                                </div>
+                                <div class="collection__row">
+                                    <div class="collection__cell">
+                                        <div class="collection__content">
+                                            <span class="collection__subtitle category-subtitle"><b>new</b> {{a.collection_name}}</span>
+                                            <h4 class="collection__title">Fashion for <br>this {{a.collection_name}}</h4>
+                                            <a class="collection__more read-more" href="shop">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <a class="collection__link" href="shop"></a>
+                            </div>
+                        </article>
+                        {%endfor%}
+
+                        <div class="collections__bottom">
+                            <div class="collections__max">
+                                <h3 class="collection-title">
+                                    <span class="collection-title__count">{{customer}}</span>
+                                    <span class="collection-title__plus">+</span>
+                                    <span class="collection-title__text">Satisfied clients</span>
+                                </h3>      
+                            </div>                      
+                        </div>
+                    </div> 
+                    <div class="load-more">
+                        <a class="button" href="collection">
+                            <span class="button__text">View all collections</span>
+                        </a>
+                    </div>                                     
+                </div>                  
+                <img class="collection-block__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt="">
+                <img class="collection-block__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt="">
+            </section>
+            <!-- COLLECTION END -->
+
+            <!-- BEGIN PRODUCTS -->
+            <section class="main-block wrapper">
+                <div class="main-block__top">
+                    <span class="main-block__subtitle category-subtitle"><b>new</b> collections</span>
+                    <h3 class="main-block__title">Featured products</h3>
+                </div>
+                <div class="products-nav tabs-nav js-line">
+                    <ul class="tabs-nav__list">
+                        {% for i in cat %}
+
+                        <li class="tabs-nav__item js-tabs-item js-line-item active">
+                            <a class="tabs-nav__link js-line-link js-tabs-link" href="shop">{{i.Category_name}}</a>
+                        </li>
+
+                        {%endfor%}
+
+                            <!-- tag
+                        <li class="tabs-nav__item js-line-item js-tabs-item">
+                            <a class="tabs-nav__link js-line-link js-tabs-link" href="#products-2">Men</a>
+                        </li>
+                        <li class="tabs-nav__item js-line-item js-tabs-item">
+                            <a class="tabs-nav__link js-line-link js-tabs-link" href="#products-3">Women</a>
+                        </li>
+                        <li class="tabs-nav__item js-line-item js-tabs-item">
+                            <a class="tabs-nav__link js-line-link js-tabs-link" href="#products-4">Accessories</a>
+                        </li>
+                        <li class="tabs-nav__item js-line-item js-tabs-item">
+                            <a class="tabs-nav__link js-line-link js-tabs-link" href="#products-5">New arrivals</a>
+                        </li>
+                        a-->
+                    </ul>
+                    <div class="tabs-nav__line js-line-element"></div>
+                </div>
+
+                <!-- BEGIN TAB 1 -->
+                <div class="product-tab js-tabs-content active" id="products-1">
+                    <div class="main-catalog">
+                        <div class="main-catalog__list">
+                            {%for i in product%}
+                                <article class="short-item">
+                                    <div class="short-item__all">
+                                        <a class="short-item__image-bg" href="{%url 'item:detail' i.id %}">
+                                            <img class="short-item__image" src="{{i.imageURL}}" alt="">
+                                        </a>
+                                        <div class="short-item__top">
+                                            <div class="short-item__cols">
+                                                <div class="short-item__col">
+                                                    {%if i.old_price%}
+                                                    <span class="item-tag item-tag_red">Sale</span>
+                                                    {%endif%}
+                                                    {%if i.stock == 0%}
+                                                    <span class="item-tag item-tag_red">Out of stock</span>
+                                                    {%endif%}
+                                                    <span class="item-tag item-tag_green">New</span>
+                                                </div>
+                                                <div class="short-item__col">
+                                                    <button class="heart-button js-toggle-active"></button>
+                                                </div>                                        
+                                            </div>
+                                        </div>
+                                        <h4 class="short-item__title">
+                                            <a class="short-item__link" href="{%url 'item:detail' i.id %}">{{i.Name}}</a>
+                                        </h4>
+                                        <span class="short-item__price">{{i.price}} EGP</span>
+                                        {%if i.old_price%}
+                                        <span class="short-item__old-price">{{i.old_price}} EGP</span>
+                                        {%endif%}
+                                    </div>
+                                </article>
+                            {%endfor%}      
+                        </div>
+                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-catalog.svg' %}" alt="">
+                    </div>
+                </div>
+                <!-- TAB 1 END -->
+
+                <!-- BEGIN TAB 2 -->
+                <div class="product-tab js-tabs-content" id="products-2">
+                    <div class="main-catalog">
+                        <div class="main-catalog__list">
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/4.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>                        
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/3.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$35.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$38.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/12.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/7.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>                        
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Retro style handbag</a>
+                                    </h4>
+                                    <span class="short-item__price">$98.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Long oversized T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$15.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>                            
+                        </div>
+                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-catalog.svg' %}" alt="">
+                    </div>       
+                </div>
+                <!-- TAB 2 END -->
+                
+                <!-- BEGIN TAB 3 -->
+                <div class="product-tab js-tabs-content" id="products-3">
+                    <div class="main-catalog">
+                        <div class="main-catalog__list">
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/7.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/3.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/11.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/2.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$38.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/13.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Retro style handbag</a>
+                                    </h4>
+                                    <span class="short-item__price">$98.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/5.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$35.99</span>
+                                </div>
+                            </article>                        
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/4.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Long oversized T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$15.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>                            
+                        </div>
+                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-catalog.svg" alt="">
+                    </div>                  
+                </div>
+                <!-- TAB 3 END --> 
+                
+                <!-- BEGIN TAB 4 -->
+                <div class="product-tab js-tabs-content" id="products-4">
+                    <div class="main-catalog">
+                        <div class="main-catalog__list">
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/9.jpeg' %]" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$38.99</span>
+                                </div>
+                            </article>                        
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/2.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/11.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/12.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$35.99</span>
+                                </div>
+                            </article>                        
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/5.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Retro style handbag</a>
+                                    </h4>
+                                    <span class="short-item__price">$98.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/6.jpeg'%}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Long oversized T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$15.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>                            
+                        </div>
+                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-catalog.svg" alt="">
+                    </div>                  
+                </div>
+                <!-- TAB 4 END --> 
+                
+                <!-- BEGIN TAB 5 -->
+                <div class="product-tab js-tabs-content" id="products-5">
+                    <div class="main-catalog">
+                        <div class="main-catalog__list">
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/2.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Retro style handbag</a>
+                                    </h4>
+                                    <span class="short-item__price">$98.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/4.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Long oversized T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$15.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>                         
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/7.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$35.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/12.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/11.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/13.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/3.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$38.99</span>
+                                </div>
+                            </article>                            
+                        </div>
+                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-catalog.svg" alt="">
+                    </div>                  
+                </div>
+                <!-- TAB 5 END -->                 
+
+                <div class="load-more">
+                    <a class="button" href="shop">
+                        <span class="button__text">See all products</span>
+                    </a>
+                </div>
+            </section>
+            <!-- PRODUCTS END -->
+
+            <!-- BEGIN DEAL OF THE WEEK -->
+            <section class="deal-block">
+                <div class="deal-block__cols">
+                    <div class="deal-block__col">
+                        <div class="deal-block__image" data-bg="{% static 'img/blink/12.jpeg'%}"></div>
+                        <div class="deal-block__content">
+                            <div class="deal-block__row">
+                                <div class="deal-block__cell">
+                                    <span class="deal-block__subtitle category-subtitle"><b>deal</b> of the week</span>
+                                    <h3 class="deal-block__title">Stay warm <br>and trendy</h3>
+                                    <div class="timer js-timer"></div>
+                                    <a class="deal-block__button button" href="shop">
+                                        <span class="button__text">Shop now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="deal-block__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-deal.svg'%}" alt="">
+                    </div>
+                </div>
+            </section>
+            <!-- BEGIN DEAL OF THE WEEK END -->    
+            
+            <!-- BEGIN ADVANTAGES -->
+            <!-- <div class="advantages wrapper">
+                <div class="advantages__list">
+                    <article class="advantage">
+                        <div class="advantage__content">
+                            <div class="advantage__icon-wrap">
+                                <img class="advantage__icon" src="https://via.placeholder.com/70x70" alt="">
+                            </div>
+                            <h4 class="advantage__title">Free Shipping</h4>
+                            <div class="advantage__line"></div>
+                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit</p>
+                        </div>
+                        <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
+                    </article>
+                    <article class="advantage">
+                        <div class="advantage__content">
+                            <div class="advantage__icon-wrap">
+                                <img class="advantage__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/70x70" alt="">
+                            </div>
+                            <h4 class="advantage__title">24/7 Customer Service</h4>
+                            <div class="advantage__line"></div>
+                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit </p>
+                        </div>
+                        <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
+                    </article>
+                    <article class="advantage">
+                        <div class="advantage__content">
+                            <div class="advantage__icon-wrap">
+                                <img class="advantage__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/70x70" alt="">
+                            </div>
+                            <h4 class="advantage__title">Money Back Guarantee</h4>
+                            <div class="advantage__line"></div>
+                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit </p>
+                        </div>
+                        <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
+                    </article>                                        
+                </div>
+            </div> -->
+            <!-- ADVANTAGES END -->
+
+            <!-- BEGIN BEST SELLERS -->
+            <section class="main-block wrapper">
+                <div class="main-block__top">
+                    <span class="main-block__subtitle category-subtitle"><b>top</b> products</span>
+                    <h3 class="main-block__title">Best sellers at Blink</h3>
+                    
+                    <p class="main-block__text">Don't miss the trend and get the best sellers</p>
+                    
+                </div>
+                <div class="catalog-slider js-catalog loaded">
+                    <div class="catalog-slider__list-wrap">
+                        <div class="catalog-slider__list js-catalog-carousel">
+                        {%for a in highest_products%}
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="{%url 'item:detail' a.id %}">
+                                        <img class="short-item__image" src="{{a.imageURL}}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                {%if a.old_price%}
+                                                <span class="item-tag item-tag_red">sale</span>
+                                                {%endif%}
+                                                {%if a.stock == 0%}
+                                                <span class="item-tag item-tag_red">out of stock</span>
+                                                {%endif%}
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="{%url 'item:detail' a.id %}">{{a.Name}}</a>
+                                    </h4>
+                                    <span class="short-item__price">{{a.price}} EGP</span>
+                                    {%if a.old_price%}
+                                    <span class="short-item__old-price">{{a.old_price}} EGP</span>
+                                    {%endif%}
+                                </div>
+                            </article>  
+                        {%endfor%}
+                            <!--                            
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="{% static 'img/blink/11.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Retro style handbag</a>
+                                    </h4>
+                                    <span class="short-item__price">$98.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>  
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg'%}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>                                                         
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/7.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/6.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/4.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$38.99</span>
+                                </div>
+                            </article> 
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/11.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_green">New</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$35.99</span>
+                                </div>
+                            </article> 
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/13.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                <span class="item-tag item-tag_red">Sale</span>
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Textured turtleneck with zip</a>
+                                    </h4>
+                                    <span class="short-item__price">$25.99</span>
+                                    <span class="short-item__old-price">$52.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/8.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+                                                
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Spray wrap skirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$29.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/9.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$63.99</span>
+                                </div>
+                            </article>
+                            <article class="short-item">
+                                <div class="short-item__all">
+                                    <a class="short-item__image-bg" href="product_page">
+                                        <img class="short-item__image" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/blink/10.jpeg' %}" alt="">
+                                    </a>
+                                    <div class="short-item__top">
+                                        <div class="short-item__cols">
+                                            <div class="short-item__col">
+    
+                                            </div>
+                                            <div class="short-item__col">
+                                                <button class="heart-button js-toggle-active"></button>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <h4 class="short-item__title">
+                                        <a class="short-item__link" href="product_page">Cotton T-shirt</a>
+                                    </h4>
+                                    <span class="short-item__price">$47.99</span>
+                                </div>
+                            </article>
+                            -->                           
+                        </div>
+                    </div>
+                    <div class="catalog-slider__cols">
+                        <div class="catalog-slider__col">
+                            <button class="prev-button js-catalog-prev"></button>
+                        </div>
+                        <div class="catalog-slider__col dots-2 js-catalog-dots">
+                                               
+                        </div>
+                        <div class="catalog-slider__col">
+                            <button class="next-button js-catalog-next"></button>
+                        </div>                                                
+                    </div>
+                    <div class="load-icon"></div>
+                    <img class="catalog-slider__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-catalog.svg" alt="">
+                </div>
+            </section>
+            <!-- BEST SELLERS END -->
+
+            <!-- BEGIN BLOG -->
+            <section class="main-block wrapper">
+                <div class="main-block__top">
+                    <span class="main-block__subtitle category-subtitle">our <b>blog</b></span>
+                    <h3 class="main-block__title">the last in Blink</h3>
+                    <p class="main-block__text">Cillum eu id enim aliquip aute ullamco anim. Culpa deserunt nostrud excepteur voluptate velit ipsum esse enim.</p>
+                </div>
+                <div class="blog">
+                    <article class="short-post">
+                        <div class="short-post__all">
+                            <a class="short-post__image-link" href="post">
+                                <div class="short-post__image" data-bg="{% static 'img/blink/1.jpeg'%}"></div>
+                            </a>
+                            <div class="short-post__row">
+                                <div class="short-post__cell">
+                                    <div class="short-post__bg">
+                                        <div class="short-post__content">
+                                            <div class="short-post__title-wrap">
+                                                <h4 class="short-post__title">
+                                                    <a class="short-post__link" href="post">Fashion trends in 2020: style, colors, accessories</a>
+                                                </h4>
+                                            </div>
+                                            <span class="short-post__date">Aug 02, 2020</span>
+                                            <a class="short-post__more read-more" href="post">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>  
+                    <article class="short-post">
+                        <div class="short-post__all">
+                            <a class="short-post__image-link" href="post">
+                                <div class="short-post__image" data-bg="{% static 'img/blink/2.jpeg'%}"></div>
+                            </a>
+                            <div class="short-post__row">
+                                <div class="short-post__cell">
+                                    <div class="short-post__bg">
+                                        <div class="short-post__content">
+                                            <div class="short-post__title-wrap">
+                                                <h4 class="short-post__title">
+                                                    <a class="short-post__link" href="post">The most popular brand that people use in USA</a>
+                                                </h4>
+                                            </div>
+                                            <span class="short-post__date">Aug 02, 2020</span>
+                                            <a class="short-post__more read-more" href="post">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>                                                                            
+                </div>
+                <div class="load-more">
+                    <a class="button" href="blog">
+                        <span class="button__text">Read blog</span>
+                    </a>
+                </div>                
+            </section>
+            <!-- BLOG END -->
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.facebook}}">FB</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.twitter}}">TW</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.instagram}}">INS</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="{{social.whatsapp_link}}">WT</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="about">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="collection">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="shop">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="blog">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="contacts">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->    
+
+    </div> 
+       
+
+    <script src="{% static 'js/libs/jquery-3.5.1.min.js' %}"></script> 
+    <script src="{% static 'js/libs/jquery-migrate-1.4.1.min.js' %}"></script>   
+    <script src="{% static 'js/components/slick.js' %}"></script>
+    <script src="{% static 'js/components/syotimer.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>  
+{% endblock content %}
+
+</body>
+</html>

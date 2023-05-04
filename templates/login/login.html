@@ -1,0 +1,238 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!doctype html>
+<html lang="zxx">
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Log In</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="#">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Log In</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg="https://via.placeholder.com/800x400"></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-inner-top.svg" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN LOGIN -->
+            <div class="login-page">
+                <div class="login-page__all">
+                    <div class="login-page__banner" data-bg="https://via.placeholder.com/1680x500"></div>
+                    <div class="login-page__main">
+                        <form method="post" action="{% url 'login_submit' %}">
+                            {% csrf_token %}
+                            <div class="login-form">
+                                <div class="login-form__top">
+                                    <h2 class="login-form__title">Login with</h2>
+                                    <p class="login-form__text">For your convenience, we have made it possible to log in via social networks.</p>
+                                </div>
+                                <ul class="socials-nav">
+                                    <li class="socials-nav__item">
+                                        <a class="socials-nav__link socials-nav__link_icon-1" href="#"></a>
+                                    </li>
+                                    <li class="socials-nav__item">
+                                        <a class="socials-nav__link socials-nav__link_icon-2" href="#"></a>
+                                    </li>  
+                                    <li class="socials-nav__item">
+                                        <a class="socials-nav__link socials-nav__link_icon-3" href="#"></a>
+                                    </li>
+                                    <li class="socials-nav__item">
+                                        <a class="socials-nav__link socials-nav__link_icon-4" href="#"></a>
+                                    </li>                                                                       
+                                </ul>
+                                <input class="text-input" type="email" name="email" placeholder="Enter your email">
+                                <input class="text-input" type="password" name="password" placeholder="Enter your password">
+                                <div class="login-form__bottom">
+                                    <div class="login-form__col">
+                                        <div class="login-form__checkbox checkbox">
+                                            <label class="checkbox__label">
+                                                <input class="checkbox__input" type="checkbox">
+                                                <span class="checkbox__icon"></span>
+                                                <span class="checkbox__text">Remember me</span>
+                                            </label>
+                                        </div>                                        
+                                    </div>
+                                    
+                                    <div class="login-form__col">
+                                        <span class="login-form__small-text">
+                                            <a style="color: red;">{{error}}</a>
+                                        </span>
+                                    </div>
+
+                                    <div class="login-form__col">
+                                        <span class="login-form__small-text">
+                                            <a href="/registration">create new account?</a>
+                                        </span>
+                                    </div>                                    
+                                </div>
+                                
+                                <button class="login-form__button button" type="submit">
+                                    <span class="button__text">Log in</span>
+                                </button>
+                               
+                            </div>
+                        </form>
+                        
+                        <img class="login-page__vector" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-login.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- LOGIN END -->
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="about.html">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="collections.html">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="shop.html">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="blog.html">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="contacts.html">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq.html">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->      
+
+    </div> 
+       
+
+
+    <script src="assets/js/libs/jquery-3.5.1.min.js"></script> 
+    <script src="assets/js/libs/jquery-migrate-1.4.1.min.js"></script>   
+    <script src="assets/js/main.js"></script>  
+    
+{% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+{%extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="zxx">
+    
+
+        <!-- BEGIN MAIN -->
+        <main class="main">              
+
+            <!-- BEGIN INNER TOP -->
+            <div class="inner-top">
+                <div class="inner-top__main wrapper">
+                    <div class="inner-top__cols">
+                        <div class="inner-top__left">
+                            <h1 class="inner-top__title">Cart</h1>
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="#">Home</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">Cart</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inner-top__right">
+                            <div class="inner-top__image" data-bg="{%static 'img/svg/vector-collections.svg'%}"></div>
+                        </div>                        
+                    </div>
+                    <img class="inner-top__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-inner-top.svg" alt="">
+                </div>
+            </div>
+            <!-- INNER TOP END -->
+
+            <!-- BEGIN CART -->
+            <div class="cart-page wrapper">
+
+                <div class="cart-page__cols">
+
+                    <!-- BEGIN LEFT COLUMN -->
+                    <div class="cart-page__left">
+
+                        <div class="cart-table wishlist">
+                            {%for i in items%}
+                            
+                            <article class="wishlist__item js-remove">
+                                <div class="wishlist__cols">
+                                    <div class="wishlist__left">
+                                        <a class="wishlist__image-link" href="{%url 'item:detail' i.product.id %}">
+                                            <img class="wishlist__image" src="{{i.product.imageURL}}">
+                                        </a>
+                                    </div>
+                                    <div class="wishlist__right">
+                                        <div class="wishlist__top wishlist__top_cart">
+                                            <div class="wishlist__col">
+                                                <h2 class="wishlist__title">
+                                                    <a class="wishlist__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.size}}) </a>
+                                                </h2>
+                                            </div>
+                                            <!--
+                                            <div class="wishlist__col">
+                                                <button class="wishlist__remove remove-button js-remove-button "></button>  
+                                            </div>
+                                            -->                                    
+                                        </div>
+                                        <div class="wishlist__bottom wishlist__bottom_cart">
+                                            <div class="wishlist__cart-col">
+                                                <!--
+                                                <span class="wishlist__old-price">$52.99</span>
+                                                -->
+                                                <span class="wishlist__price wishlist__price_small">$ {{ i.product.price }} </span> 
+                                            </div>
+                                            <div class="wishlist__cart-col">
+                                                <div class="wishlist__count count js-count">
+                        
+                                                    <button class="count__button count__button_minus js-count-minus update-cart" data-action="remove" data-product={{i.product.id}} data-size={{i.size}}></button>
+                                                    <input class="count__input js-count-input" type="text" value={{i.quantity}} maxlength="4">
+                                                    {% if i.stock_count != i.quantity %}
+                                                        <button class="count__button count__button_plus js-count-plus update-cart" data-action="add" data-product={{i.product.id}} data-size={{i.size}}></button>
+                                                    {%endif%}
+                                                </div>                                    
+                                            </div>
+                                            <div class="wishlist__cart-col">
+                                                <span class="wishlist__price wishlist__price_total">$ {{i.get_total}}</span>
+                                            </div>                                                                        
+                                        </div>
+                                    </div>   
+                                </div>                                                                 
+                            </article>
+
+                            {%endfor%}
+                        </div>
+
+                        <section class="promo">
+                            <div class="promo__top">
+                                <h3 class="promo__title">You have a promo&nbsp;code?</h3>
+                                <p class="promo__text">To receive up-to-date promotional codes, subscribe to us on social networks.</p>                                
+                            </div>
+                            {%if cartItems != 0 %}
+                            <div class="promo-form">
+                                
+                                <div class="promo-form__left">
+                                    <input class="promo-form__input text-input" type="text" id='promo-input'{% if order.promocode == None %} placeholder="Use Your PROMOCODE" {%else%} placeholder="{{order.promocode}} is in use" {%endif%}>
+                                </div>
+                                
+
+                                <div class="promo-form__right">
+                                    <button class="promo-form__button button" >
+                                        <span class="button__text">
+                                            <span class="button__arrow"></span>
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </div>
+                            {%endif%}
+                            
+                        </section>
+
+                        <div class="cart-socials socials">
+                            <span class="cart-socials__text socials__text">Find us here:</span>
+                            <ul class="cart-socials__list socials__list">
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">Fb</a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">Tw</a>
+                                </li> 
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">Ins</a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">Pt</a>
+                                </li>                                                                           
+                            </ul>
+                        </div>                          
+                    </div>
+                    <!-- LEFT COLUMN END -->
+
+                    <!-- BEGIN RIGHT COLUMN -->
+                    <aside class="cart-page__right">
+                        <section class="your-order">
+                            <h3 class="your-order__title">Your order</h3>
+                            <ul class="your-order__list">
+                                <li class="your-order__item">
+                                    <div class="your-order__col">
+                                        <span class="your-order__text">Оrder price</span>
+                                    </div>
+                                    <div class="your-order__col">
+                                        <span class="your-order__price">${{order.get_cart_total}}</span>
+                                    </div>                                
+                                </li>
+                                <li class="your-order__item">
+                                    <div class="your-order__col">
+                                        <span class="your-order__text">Discount for promo&nbsp;code</span>
+                                    </div>
+
+                                    <div class="your-order__col">
+                                        <span class="your-order__text promo-field" id="promo-value">{{order.promocode}}</span>
+                                        {%if order.promocode != None%}
+                                        <span class="your-order__text promo-field" id="promo-value" style="color:red; font-weight: bold;">- {{order.get_cart_discount}} </span>
+                                        {%endif%}
+                                    </div>                         
+                                </li>
+                                <li class="your-order__item">
+                                    <div class="your-order__col">
+                                        <span class="your-order__text">Delivery&nbsp;&nbsp;<span>(Aug 02 at 16:00)</span></span>
+                                    </div>
+                                    <div class="your-order__col">
+                                        <span class="your-order__price">$0</span>
+                                    </div>                                
+                                </li>                                                        
+                            </ul>
+                            <div class="your-order__bottom">
+                                <div class="your-order__col">
+                                    <span class="your-order__bottom-text">Total</span>
+                                </div>
+                                <div class="your-order__col">
+                                    <span class="your-order__bottom-price">${{order.get_cart_total_discount}}</span>
+                                </div>                            
+                            </div>
+                            {% if user.is_authenticated and cartItems != 0%}
+                            <a href="/checkout1">
+                                <button class="your-order__button button">
+                                    <span class="button__text">Checkout</span>
+                                </button>
+                            </a>
+                            {% elif cartItems == 0 %}
+                            <a href="/shop">
+                                <button class="your-order__button button">
+                                    <span class="button__text">Full out the cart </span>
+                                </button>
+                            </a>
+
+                            {%else%}
+
+                            <a href="/registration">
+                                <button class="your-order__button button">
+                                    <span class="button__text">login to submit the order</span>
+                                </button>
+                            </a>
+
+                            {%endif%}
+                        </section>
+                    </aside>
+                    <!-- RIGHT COLUMN END -->
+
+                </div>
+
+            </div>
+            <!-- CART END -->           
+
+        </main>
+        <!-- MAIN END -->
+        
+        <!-- BEGIN FOOTER -->
+        <footer class="footer">      
+            <div class="footer__main wrapper">
+                <div class="footer__top">
+                    <div class="footer__cols">
+                        <div class="footer__col">
+                            <a class="footer-logo logo" href="#">
+                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                            </a>
+                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                            <div class="footer-line"></div>  
+                            <div class="socials">
+                                <span class="socials__text">Find us here:</span>
+                                <ul class="socials__list">
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Fb</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Tw</a>
+                                    </li> 
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Ins</a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a class="socials__link" href="#">Pt</a>
+                                    </li>                                                                           
+                                </ul>
+                            </div>                        
+                        </div>
+                        <div class="footer__col">
+                            <nav class="footer-nav">
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">About</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/about">About us</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/collections">Collections</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/shop">Shop</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/blog">Blog</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="/contacts">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav__col">
+                                    <span class="footer-title">Useful links</span>
+                                    <ul class="footer-nav__list">
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Terms of use</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Support</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="#">Shipping details</a>
+                                        </li>
+                                        <li class="footer-nav__item">
+                                            <a class="footer-nav__link" href="faq.html">FAQs</a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <span class="footer-title">Newsletter</span>
+                            <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
+                            <form>
+                                <div class="subscription">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <button class="subscription__button" type="submit"></button>
+                                </div>
+                            </form>                            
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__cols">
+                        <div class="footer__left">
+                            <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
+                        </div>
+                        <div class="footer__right">
+                            <div class="payments">
+                                <div class="payments__col">
+                                    <span class="payments__text">Payment methods:</span>
+                                </div>
+                                <div class="payments__col">
+                                    <ul class="payments__list">
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>
+                                        <li class="payments__item">
+                                            <img class="payments__image" alt="" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/34x20">
+                                        </li>                                                                                  
+                                    </ul>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
+                <img class="footer__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-right.svg" alt="">
+            </div>
+        </footer>
+        <!-- FOOTER END -->      
+
+    </div> 
+       
+   
+    <script src="{% static 'js/cart.js' %}"></script>
+
+    <script text="text/javascript">
+
+        var inputField = document.getElementById('promo-input');
+        var button = document.querySelector('.promo-form__button');
+    
+        button.addEventListener('click', function() {
+            var inputValue = inputField.value;
+            console.log(inputValue);
+            updatepromo(inputValue)
+        });
+
+        function updatepromo(inputValue){
+            console.log('user is logged in,sending data')
+
+            var url = 'cart/promo'
+
+            fetch(url,{
+                method:'POST',
+                headers:{
+                'content-Type':'application/json',
+                'X-CSRFToken' : csrftoken
+                },
+                body:JSON.stringify({'promocode':inputValue})
+            })
+
+            .then((response) =>{
+                return response.json()
+            })
+
+            .then((data) =>{
+                console.log('data:', data)
+                location.reload()
+                
+            })
+
+            }
+    </script>
+  
+    {% endblock content %}
+
+</body>
+</html>
+

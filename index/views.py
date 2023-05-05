@@ -3,9 +3,8 @@ from collection.models import Categories,Products,Collections
 from django.shortcuts import render,get_object_or_404, redirect
 from collection.models import Categories,Colors,Products,Collections,Photo,PromoCode
 from login.models import *
-from django.db.models import F
 from contacts.models import Socialmedia
-
+from product_page.models import Reviews
 
 
 # Create your views here.

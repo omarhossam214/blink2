@@ -152,7 +152,7 @@
                         <article class="collection collection_1">
                             <div class="collection__all">
                                 <div class="collection__mob-image">
-                                    <a class="collection__image" data-bg="{{a.product_img.url}}" href="#"></a>
+                                    <a class="collection__image" data-bg="{{a.product_img.url}}" href="{% url 'collection:getcollection' pk=a.pk %}"></a>
                                     <span class="collection__category">{{a.collection_name}}</span>  
                                 </div>
                                 <div class="collection__row">
@@ -160,11 +160,11 @@
                                         <div class="collection__content">
                                             <span class="collection__subtitle category-subtitle"><b>new</b> {{a.collection_name}}</span>
                                             <h4 class="collection__title">Fashion for <br>this {{a.collection_name}}</h4>
-                                            <a class="collection__more read-more" href="shop">Shop now</a>
+                                            <a class="collection__more read-more" href="{% url 'collection:getcollection' pk=a.pk %}">Shop now</a>
                                         </div>
                                     </div>
                                 </div> 
-                                <a class="collection__link" href="shop"></a>
+                                <a class="collection__link" href="{% url 'collection:getcollection' pk=a.pk %}"></a>
                             </div>
                         </article>
                         {%endfor%}

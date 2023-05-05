@@ -14,7 +14,6 @@ admin.site.site_title="BLINK-administration"
 
 
 
-
 class CollectionInline(admin.TabularInline):
     model = Products.collection.through
     extra = 0
@@ -26,6 +25,14 @@ class CollectionInline(admin.TabularInline):
 class PhotoAdmin(admin.StackedInline):
     model = Photo
     extra = 0
+
+
+
+
+class StockColorAdmin(admin.StackedInline):
+    model = StockColor
+    extra = 0
+
 
 
 
@@ -42,7 +49,7 @@ class ProductsAdmin(admin.ModelAdmin):
     list_editable = ['stock','price','Category','Color','old_price']
     search_fields = ['Name']
     list_filter = ['stock','Category','Color',("data_order", DateRangeFilterBuilder()),]
-    inlines = [CollectionInline,PhotoAdmin,StockoInline]
+    inlines = [CollectionInline,PhotoAdmin,StockoInline,StockColorAdmin]
     exclude = ('collection',)
     readonly_fields = ('total_quantity',)
 

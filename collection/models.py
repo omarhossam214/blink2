@@ -82,6 +82,8 @@ class Products(models.Model):
     digital = models.BooleanField(default=False, null=True, blank=False)
 
     data_order = models.DateTimeField(auto_now_add=True,null=True)
+
+    
     
     def total_quantity(self):
         return self.orderitem_set.aggregate(Sum('quantity'))['quantity__sum'] or 0
@@ -133,6 +135,12 @@ class Photo(models.Model):
         return mark_safe(f'<img src = "{self.photo}" width = "300"/>')
 
 
+
+class StockColor(models.Model):
+    products = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='stockcolor')
+    stock_num  = models.PositiveIntegerField(default=0)
+    color_name = models.CharField(max_length=100)
+    size_name = models.CharField(max_length=100)
 
 
 

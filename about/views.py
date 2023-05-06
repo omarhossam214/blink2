@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from login.models import *
-
+from .models import About
 
 # Create your views here.
 
 
 def index(request):
+    about = About.objects.get(pk=1)
     
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -22,4 +23,5 @@ def index(request):
 
     return render(request,'about/about.html',{'items':items,
                                              'order':order,
+                                             'about':about,
                                              'cartItems':cartItems})

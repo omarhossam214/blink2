@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from login.models import Order
-
+from .models import FAQ
 # Create your views here.
 
 def index(request):
-    if request.user.is_authenticated:
+    faq = FAQ.objects.all()
 
+    if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         cartItems = order.get_cart_items
@@ -19,5 +20,6 @@ def index(request):
         cartItems = order['get_cart_items']
 
     return render(request,'faq/faq.html',{
-                                             'cartItems':cartItems
+                                             'cartItems':cartItems,
+                                             'faq':faq
                                              })

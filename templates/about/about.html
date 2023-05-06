@@ -35,14 +35,14 @@
             <article class="about-company wrapper">
                 <div class="about-company__top">
                     <h2 class="about-company__title">All about company</h2>
-                    <p class="about-company__text">Official representative of the world-famous clothing brand Mollee in Europe and the world.</p>
+                    <p class="about-company__text">{{about.All_About_Company}}.</p>
                 </div>
                 <div class="about-company__cols">
                     <div class="about-company__col">
                         <section class="about-section">
                             <h3 class="about-section__title">the beginning of our journey</h3>
-                            <span class="about-section__year">2010</span>
-                            <p class="about-section__text">In 2010, our company celebrated its 10th anniversary - these are the years of acquired experience of trading around the world. <br>Join us among our clients! You can buy only original things from us. We offer products of your favorite brands - clothes, shoes, accessories, textiles and much more - quality products for every taste and age from Europe.</p>
+                            <span class="about-section__year">2023</span>
+                            <p class="about-section__text">{{about.journey}}.</p>
                         </section>
                     </div>
                     <div class="about-company__col">
@@ -69,7 +69,7 @@
                         <section class="about-section">
                             <h3 class="about-section__title">who are we now?</h3>
                             <span class="about-section__year">2020</span>
-                            <p class="about-section__text">We now have a team of more than 1,000 skilled workers and about 167 clothing brands that cooperate with us. Ordering in our store is a saving of time and effort to find what you need; assistance of experienced consultants in choosing a model. <br>Our specialists will help you specify your European size, tell you about fabrics and materials.</p>
+                            <p class="about-section__text"> {{about.who}}</p>
                         </section>                            
                     </div>                                                    
                 </div>                
@@ -80,13 +80,13 @@
             <section class="inner-deal">
                 <div class="inner-deal__cols wrapper">
                     <div class="inner-deal__left">
-                        <div class="inner-deal__image" data-bg="https://via.placeholder.com/1040x800"></div>
+                        <div class="inner-deal__image" style="background-image: url('{{ about.img.url }}');"></div>
                     </div>
                     <div class="inner-deal__right">
                         <span class="inner-deal__subtitle category-subtitle"><b>deal</b> of the week</span>
                         <h3 class="inner-deal__title">multi-brand <br>store of clothes</h3>
-                        <p class="inner-deal__text">We follow fashion trends and have been working for you for more than 20 years. A selection of the best, interesting, and most importantly, boring outfits for different occasions.</p>
-                        <a class="inner-deal__button button" href="shop.html">
+                        <p class="inner-deal__text">fg, and most importantly, boring outfits for different occasions.</p>
+                        <a class="inner-deal__button button" href="/shop">
 							<span class="button__text">Shop now</span>
 						</a>
                     </div>
@@ -100,33 +100,33 @@
                     <article class="advantage">
                         <div class="advantage__content">
                             <div class="advantage__icon-wrap">
-                                <img class="advantage__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/70x70" alt="">
+                                <img class="advantage__icon" src="{%static 'img/7680241_3697355.jpg'%}" alt="">
                             </div>
                             <h4 class="advantage__title">Free Shipping</h4>
                             <div class="advantage__line"></div>
-                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit</p>
+                            <p class="advantage__text">{{about.Free_Shipping}}</p>
                         </div>
                         <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
                     </article>
                     <article class="advantage">
                         <div class="advantage__content">
                             <div class="advantage__icon-wrap">
-                                <img class="advantage__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/70x70" alt="">
+                                <img class="advantage__icon" src="{%static 'img/41886.jpg'%}"  alt="">
                             </div>
                             <h4 class="advantage__title">24/7 Customer Service</h4>
                             <div class="advantage__line"></div>
-                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit </p>
+                            <p class="advantage__text">{{about.Customer_Service}}</p>
                         </div>
                         <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
                     </article>
                     <article class="advantage">
                         <div class="advantage__content">
                             <div class="advantage__icon-wrap">
-                                <img class="advantage__icon" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="https://via.placeholder.com/70x70" alt="">
+                                <img class="advantage__icon" src="{%static 'img/2900482_25498.jpg'%}" alt="">
                             </div>
                             <h4 class="advantage__title">Money Back Guarantee</h4>
                             <div class="advantage__line"></div>
-                            <p class="advantage__text">Non aliqua reprehenderit reprehenderit culpa laboris nulla minim anim velit </p>
+                            <p class="advantage__text">{{about.Free_Shipping}}</p>
                         </div>
                         <img class="advantage__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-advantages.svg" alt="">
                     </article>                                        
@@ -163,7 +163,7 @@
             <!-- NEWSLETTER END -->
 
             <!-- BEGIN BRANDS -->
-            <div class="brands-block wrapper">
+            <!-- <div class="brands-block wrapper">
                 <ul class="brands">
                     <li class="brands__item">
                         <a class="brands__link" href="#">
@@ -201,7 +201,7 @@
                         </a>
                     </li>                                                                                
                 </ul>
-            </div>
+            </div> -->
             <!-- BRANDS END -->
 
         </main>

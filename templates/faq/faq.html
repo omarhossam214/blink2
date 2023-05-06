@@ -39,17 +39,19 @@
                     <!-- BEGIN LEFT COLUMN -->
                     <div class="faq-page__left">
                         <div class="faq js-faq">
+                            {% for i in faq %}
                             <article class="faq__item js-faq-item">
                                 <h2 class="faq__title">
-                                    <a class="faq__button js-faq-button" href="javascript:void(0);">Can linen be worn in March? Skin in July?</a>
+                                    <a class="faq__button js-faq-button" href="javascript:void(0);">{{i.question}}</a>
                                 </h2>
                                 <div class="faq__hide js-faq-hide">
                                     <div class="faq__content">
-                                        <p>Esse ipsum deserunt aliquip tempor in occaecat nostrud excepteur sunt eiusmod commodo amet. Eiusmod exercitation ad elit et consequat magna. Qui nostrud ipsum laborum et eu pariatur adipisicing deserunt cupidatat adipisicing nulla Lorem do. Duis veniam quis id aute eu labore velit enim consectetur.</p>
+                                        <p>{{i.answer}}</p>
                                     </div>
                                 </div>
                             </article>
-                            <article class="faq__item js-faq-item">
+                            {%endfor%}
+                            <!-- <article class="faq__item js-faq-item">
                                 <h2 class="faq__title">
                                     <a class="faq__button js-faq-button" href="javascript:void(0);">How to dress to be on a good account at work?</a>
                                 </h2>
@@ -138,7 +140,7 @@
                                         <p>Esse ipsum deserunt aliquip tempor in occaecat nostrud excepteur sunt eiusmod commodo amet. Eiusmod exercitation ad elit et consequat magna. Qui nostrud ipsum laborum et eu pariatur adipisicing deserunt cupidatat adipisicing nulla Lorem do. Duis veniam quis id aute eu labore velit enim consectetur.</p>
                                     </div>
                                 </div>
-                            </article>
+                            </article> -->
                         </div>
                     </div>
                     <!-- LEFT COLUMN END -->

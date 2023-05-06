@@ -50,8 +50,6 @@ def index(request):
 
 def processOrder(request):
 
-    transaction_id= datetime.datetime.now().timestamp()
-
     data = json.loads(request.body)
 
     city = Coverage_area.objects.get(city_name=data['shipping']['city']).id
@@ -66,34 +64,14 @@ def processOrder(request):
         total = float(data['form']['total'])
         delivery = float(data['form']['fee'])
 
-        order.transacation_id = transaction_id
         items = order.orderitem_set.all()
-
-        for item in items:
-            product = item.product
-            size = item.size
-            quantity = item.quantity
-            
-            stocko = Stocko.objects.get(product_id=product.id)
-            
-            if size == 'L':
-                stocko.L_count -= quantity
-            elif size == 'S':
-                stocko.S_count -= quantity
-            elif size == 'XL':
-                stocko.XL_count -= quantity
-            elif size == 'XXL':
-                stocko.XXL_count -= quantity
-            
-            stocko.save()
         
-        #### the error is here in calculate)discount it doens;t return float it returns object
+        ### the error is here in calculate)discount it doens;t return float it returns object
 
         if total == order.get_cart_total:
             try:
                 totaldis_dff = (float(order.get_cart_total_discount) + float(delivery))
 
-                order.complete = True
                 order.total_price = order.get_cart_total
                 order.d_fee = delivery
                 order.promocode = order.promocode
@@ -101,7 +79,6 @@ def processOrder(request):
                 order.total = totaldis_dff
             except:
                 totaldis_dff = (float(order.get_cart_total_discount) + float(delivery))
-                order.complete = True
                 order.total_price = order.get_cart_total
                 order.d_fee = delivery
                 order.discount_amount = 0
@@ -109,12 +86,12 @@ def processOrder(request):
 
 
         order.save()
+
         ShippingAddress.objects.create(
             customer=customer,
             order=order,
             address=data['shipping']['address'],
             city_id=city,
-            call=data['shipping']['call'],
             note=data['shipping']['note'],
 
         )
@@ -123,6 +100,6 @@ def processOrder(request):
         print('user is not logged in.....')
                     
 
-    return JsonResponse('payment complete', safe=False)
+    return JsonResponse('address submittion complete', safe=False)
 
 

@@ -83,7 +83,9 @@ class Products(models.Model):
 
     data_order = models.DateTimeField(auto_now_add=True,null=True)
 
-    
+    @property
+    def total_stock_num(self):
+        return self.stockcolor.aggregate(total_stock_num=Sum('stock_num'))['total_stock_num'] or 0 
     
     def total_quantity(self):
         return self.orderitem_set.aggregate(Sum('quantity'))['quantity__sum'] or 0
@@ -141,7 +143,26 @@ class StockColor(models.Model):
     stock_num  = models.PositiveIntegerField(default=0)
     color_name = models.CharField(max_length=100)
     size_name = models.CharField(max_length=100)
+    avail = models.BooleanField(default=False)
+    
+    def save(self, *args, **kwargs):
+        if self.stock_num > 0:
+            self.avail = True
+        else:
+            self.avail = False
+        super().save(*args, **kwargs)
 
+
+
+
+@receiver(post_save, sender=StockColor)
+def update_product_stock(sender, instance, **kwargs):
+    print(6666666666666)
+    product = instance.products
+    total_stock = product.stockcolor.aggregate(total_stock=Sum('stock_num'))['total_stock'] or 0
+    product.stock = total_stock > 0
+    print(total_stock)
+    product.save()
 
 
 class Stocko(models.Model):

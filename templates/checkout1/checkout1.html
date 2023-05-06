@@ -224,7 +224,7 @@
                                             </div>
                                             <div class="side-cart__right">
                                                 <h4 class="side-cart__title">
-                                                    <a class="side-cart__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.size}})</a>
+                                                    <a class="side-cart__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.selectedcolor}}) ({{i.selectedsize}})</a>
                                                 </h4>
                                                 <span class="side-cart__text">x {{i.quantity}}</span>
                                                 <div class="side-cart__prices">
@@ -473,7 +473,6 @@
 
             shippingInfo.address = form.address.value
             shippingInfo.city = cityName
-            shippingInfo.call = form.call.value
             shippingInfo.note = form.note.value
 
 
@@ -496,7 +495,7 @@
             })
             .then((response) => response.json())
             .then((data) => {
-                window.location.href = '/shop'
+                window.location.href = '/checkout2'
 
             })
 

@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from collection.models import Products,Stocko,PromoCode
+from collection.models import Products,Stocko,PromoCode,StockColor
 import datetime
 from django.db.models import Max
 from django.db.models import Sum
+
 
 
 # Create your models here.
@@ -66,10 +67,7 @@ class Order(models.Model):
     ]
 
 
-    status = models.CharField(max_length=20, choices= status_CHOICES ,null=True)
-
-
-    transacation = models.CharField(max_length=100, null=True, default=datetime.datetime.now().timestamp())
+    status = models.CharField(max_length=20, choices= status_CHOICES ,null=True,blank=True)
 
 
     total_price = models.DecimalField(max_digits=6,decimal_places=2,null=True)
@@ -158,12 +156,7 @@ class Order(models.Model):
         return  discount_amount
     
 class OrderItem(models.Model):
-    SIZE_CHOICES = [
-        ('S', 'Small'),
-        ('L', 'Large'),
-        ('XL', 'Extra Large'),
-        ('XXL', 'Double Extra Large')
-    ]
+    
 
     product = models.ForeignKey(Products, on_delete=models.SET_NULL,null=True,blank=True)
 
@@ -173,13 +166,18 @@ class OrderItem(models.Model):
 
     data_added = models.DateTimeField(auto_now_add=True)
 
-    size = models.CharField(max_length=3, choices=SIZE_CHOICES,null=True)
+    selectedsize = models.CharField(max_length=100,null=True,blank=True)
+
+    selectedcolor = models.CharField(max_length=100,null=True,blank=True)
 
     
     @property
     def get_total(self):
-        total = self.product.price * self.quantity 
-        return total
+        try:
+            total = self.product.price * self.quantity 
+            return total
+        except:
+            return 0
     
     
 

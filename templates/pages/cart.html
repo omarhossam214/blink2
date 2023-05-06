@@ -57,7 +57,7 @@
                                         <div class="wishlist__top wishlist__top_cart">
                                             <div class="wishlist__col">
                                                 <h2 class="wishlist__title">
-                                                    <a class="wishlist__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.size}}) </a>
+                                                    <a class="wishlist__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.selectedcolor}})({{i.selectedsize}}) </a>
                                                 </h2>
                                             </div>
                                             <!--
@@ -75,12 +75,9 @@
                                             </div>
                                             <div class="wishlist__cart-col">
                                                 <div class="wishlist__count count js-count">
-                        
-                                                    <button class="count__button count__button_minus js-count-minus update-cart" data-action="remove" data-product={{i.product.id}} data-size={{i.size}}></button>
+                                                    <button class="count__button count__button_minus js-count-plus update-cart" data-action="remove" data-product={{i.product.id}} data-size={{i.selectedsize}} data-color={{i.selectedcolor}}></button>
                                                     <input class="count__input js-count-input" type="text" value={{i.quantity}} maxlength="4">
-                                                    {% if i.stock_count != i.quantity %}
-                                                        <button class="count__button count__button_plus js-count-plus update-cart" data-action="add" data-product={{i.product.id}} data-size={{i.size}}></button>
-                                                    {%endif%}
+                                                    <button class="count__button count__button_plus js-count-plus update-cart" data-action="add" data-product={{i.product.id}} data-size={{i.selectedsize}} data-color={{i.selectedcolor}}></button>
                                                 </div>                                    
                                             </div>
                                             <div class="wishlist__cart-col">
@@ -340,7 +337,7 @@
     </div> 
        
    
-    <script src="{% static 'js/cart.js' %}"></script>
+    <!-- <script src="{% static 'js/cart.js' %}"></script> -->
 
     <script text="text/javascript">
 
@@ -379,6 +376,49 @@
 
             }
     </script>
+
+
+<script>
+        var updateBtns = document.getElementsByClassName('update-cart');
+        for (var i = 0; i < updateBtns.length; i++) {
+            updateBtns[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                var action = this.getAttribute('data-action');
+                var productId = this.getAttribute('data-product');
+                var checkedSize = this.getAttribute('data-size');
+                var checkedColor = this.getAttribute('data-color');
+                console.log(checkedSize,checkedColor,action,productId);
+                updateUserOrder(checkedSize,checkedColor,action,productId)
+
+            });
+        }
+
+    function updateUserOrder(checkedSize,checkedColor,action,productId){
+        console.log('user is logged in,sending data')
+
+
+        var url = '/shop/update_item/'
+
+        fetch(url,{
+        method:'POST',
+        headers:{
+            'content-Type':'application/json',
+            'X-CSRFToken' : csrftoken
+        },
+        body:JSON.stringify({'productId':productId,'action':action,'checkedColor':checkedColor,'checkedSize':checkedSize})
+        })
+
+
+        .then((data) =>{
+        console.log('data:', data)
+        location.reload()
+
+        
+        
+        })
+        }
+
+</script>
   
     {% endblock content %}
 

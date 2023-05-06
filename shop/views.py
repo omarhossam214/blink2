@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404, redirect,HttpResponse
-from collection.models import Categories,Colors,Products,Collections,Photo,Stocko
+from collection.models import Categories,Colors,Products,Collections,Photo,Stocko,StockColor
 from login.models import *
 from product_page.models import Reviews
 from datetime import date
@@ -79,14 +79,9 @@ def detail(request,pk):
 
     collections = item.collection.all()
 
-    stocks = Stocko.objects.get(product_id=pk)
+    stockcolor = StockColor.objects.filter(products_id=pk,avail=True)
 
     may_like = Products.objects.filter(Category_id = categoryid)[:8]
-
-    #
-    
-   
-    
 
     if request.user.is_authenticated:
 
@@ -139,10 +134,10 @@ def detail(request,pk):
         'cartItems':cartItems,
         'customr':customer,
         'products':products,
-        'stocks':stocks,
         'may_like':may_like,
         'color':color,
-        'collections':collections})
+        'collections':collections,
+        'stockcolor':stockcolor})
 
 
 
@@ -150,22 +145,23 @@ def detail(request,pk):
 #    
 def updateItem(request):
     data = json.loads(request.body)
-    print('zozozozozo')
-
+    print(666666666666666666666666)
+    print(data)
     productId = data['productId']
     action = data['action']
-    size = data['selectedSize']
+    checkedColor = data['checkedColor']
+    checkedSize = data['checkedSize']
 
-    ####### if the user is logged in #########
+    # ####### if the user is logged in #########
     if request.user.is_authenticated:
+        print(action)
 
         customer = request.user.customer
         product = Products.objects.get(id=productId)
         order,created = Order.objects.get_or_create(customer=customer, complete = False)
 
-        orderItem,created = OrderItem.objects.get_or_create(order=order, product=product,size=size)
-        stock = Stocko.objects.get(product_id=productId)
-
+        orderItem,created = OrderItem.objects.get_or_create(order=order, product=product,selectedsize=checkedSize,selectedcolor=checkedColor)
+        #stockColor = StockColor.objects.get(products_id=productId,color_name=checkedColor,size_name=checkedSize)
  
         if action == 'add':
             orderItem.quantity = (orderItem.quantity + 1)
@@ -182,7 +178,7 @@ def updateItem(request):
         
         return JsonResponse('item was added', safe=False)
 
-    ####### if he is not logged in #########
+    # ####### if he is not logged in #########
     else:
 
         session_key = request.session.session_key
@@ -210,8 +206,8 @@ def updateItem(request):
         product = Products.objects.get(id=productId)
         order, created = Order.objects.get_or_create(guest=customer, complete=False)
 
-        orderItem,created = OrderItem.objects.get_or_create(order=order, product=product,size=size)
-        stock = Stocko.objects.get(product_id=productId)
+        orderItem,created = OrderItem.objects.get_or_create(order=order, product=product,selectedsize=checkedSize,selectedcolor=checkedColor)
+    #     stock = Stocko.objects.get(product_id=productId)
 
  
         if action == 'add':
@@ -227,10 +223,10 @@ def updateItem(request):
         if orderItem.quantity <= 0:
             orderItem.delete()
 
-        response = HttpResponse()
-        response.set_cookie('session_id', request.session.session_key)
+    response = HttpResponse()
+    response.set_cookie('session_id', request.session.session_key)
 
-        return response
+    return response
 
         
 

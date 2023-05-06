@@ -54,25 +54,25 @@ def index(request):
 #####
 
 
-    for item in items:
-        stocko = item.product.stocko
+    # for item in items:
+    #     stocko = item.product.stocko
         
-        if stocko:
-            if item.size == 'S':
-                item.stock_count = stocko.S_count
-            elif item.size == 'L':
-                item.stock_count = stocko.L_count
-            elif item.size == 'XL':
-                item.stock_count = stocko.XL_count
-            elif item.size == 'XXL':
-                item.stock_count = stocko.XXL_count
-            else:
-                item.stock_count = 0
-            item.quantity_minus_one = item.quantity - 1   # Subtract 1 from quantity
+    #     if stocko:
+    #         if item.size == 'S':
+    #             item.stock_count = stocko.S_count
+    #         elif item.size == 'L':
+    #             item.stock_count = stocko.L_count
+    #         elif item.size == 'XL':
+    #             item.stock_count = stocko.XL_count
+    #         elif item.size == 'XXL':
+    #             item.stock_count = stocko.XXL_count
+    #         else:
+    #             item.stock_count = 0
+    #         item.quantity_minus_one = item.quantity - 1   # Subtract 1 from quantity
 
-        else:
-            item.stock_count = 0
-            item.quantity_minus_one = 0  # Set to 0 if no stocko is available
+    #     else:
+    #         item.stock_count = 0
+    #         item.quantity_minus_one = 0  # Set to 0 if no stocko is available
 
     return render(request,'pages/cart.html',{'items':items,
                                              'order':order,

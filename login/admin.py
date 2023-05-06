@@ -9,6 +9,7 @@ class ShippingAddressAdmin(admin.ModelAdmin):
 
 class OrderItemInline(admin.StackedInline):
     model = OrderItem
+    extra = 0
 
 class ShippingAddressInline(admin.StackedInline):
     model = ShippingAddress

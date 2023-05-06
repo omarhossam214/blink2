@@ -166,10 +166,13 @@
                                                 <span class="button__text" >confirm order</span>
                                             </button>
                                         </div>
-                                    </form>                                    
+                                    </form>
+                                    <div>
+                                        <h4 style="color:burlywood" id="outstock"> </h4>
+                                    </div>                                   
                                 </div>                                        
                             </section>
-                            -->
+                            
 
                        
                     </div>
@@ -185,13 +188,13 @@
                                 <article class="side-cart__item">
                                     <div class="side-cart__cols">
                                         <div class="side-cart__left">
-                                            <a class="side-cart__image-link" href="product_page.html">
-                                                <img class="side-cart__image" src="https://via.placeholder.com/53x60" alt="">
+                                            <a class="side-cart__image-link" href="{%url 'item:detail' i.product.id %}">
+                                                <img class="side-cart__image" src="{{i.product.imageURL}}" alt="">
                                             </a>
                                         </div>
                                         <div class="side-cart__right">
                                             <h4 class="side-cart__title">
-                                                <a class="side-cart__link" href="product_page.html">{{i.product.Name}}</a>
+                                                <a class="side-cart__link" href="{%url 'item:detail' i.product.id %}">{{i.product.Name}} ({{i.selectedcolor}}) ({{i.selectedsize}})</a>
                                             </h4>
                                             <span class="side-cart__text">x {{i.quantity}}</span>
                                             <div class="side-cart__prices">
@@ -231,7 +234,7 @@
                                         <span class="your-order__text">Оrder price</span>
                                     </div>
                                     <div class="your-order__col">
-                                        <span class="your-order__price">$ {{order.get_cart_total}}</span>
+                                        <span class="your-order__price"> {{order.get_cart_total}} EGP </span>
                                     </div>                                
                                 </li>
                                 <li class="your-order__item">
@@ -239,15 +242,19 @@
                                         <span class="your-order__text">Discount for promo&nbsp;code</span>
                                     </div>
                                     <div class="your-order__col">
-                                        <span class="your-order__text">No</span>
+                                        <span class="your-order__text promo-field" id="promo-value">{{order.promocode}}</span>
+                                        {%if order.promocode != None%}
+                                        <span class="your-order__text promo-field" id="promo-value" style="color:red; font-weight: bold;">- {{order.get_cart_discount}} EGP</span>
+                                        {%endif%}
                                     </div>                                
                                 </li>
                                 <li class="your-order__item">
+                                    
                                     <div class="your-order__col">
-                                        <span class="your-order__text">Delivery&nbsp;&nbsp;<span>(Aug 02 at 16:00)</span></span>
+                                        <span class="your-order__text">Delivery&nbsp;&nbsp;<span></span></span>
                                     </div>
                                     <div class="your-order__col">
-                                        <span class="your-order__price">$0</span>
+                                        <span class="your-order__fee" style="font-weight: bold;">{{order.d_fee}} EGP</span>
                                     </div>                                
                                 </li>                                                        
                             </ul>
@@ -256,7 +263,7 @@
                                     <span class="your-order__bottom-text">Total</span>
                                 </div>
                                 <div class="your-order__col">
-                                    <span class="your-order__bottom-price">${{order.get_cart_total}}</span>
+                                    <span class="your-order__bottom-price">{{order.total}} EGP</span>
                                 </div>                            
                             </div>
                         </section>        
@@ -339,7 +346,7 @@
                                             <a class="footer-nav__link" href="#">Shipping details</a>
                                         </li>
                                         <li class="footer-nav__item">
-                                            <a class="footer-nav__link" href="faq.html">FAQs</a>
+                                            <a class="footer-nav__link" href="faq">FAQs</a>
                                         </li>
                                     </ul>
                                 </div>                                
@@ -409,17 +416,18 @@
             e.preventDefault()
            
 
-            console.log('payment zby zby ')
+            console.log('payment')
             console.log(user)
             
             var userFormData = {
-                "total":total
+                "total":total,
+                "submit":'submit'
             }
 
          
 
 
-            var url = 'checkout2/process_order'
+            var url = 'checkout2/submit_order'
             fetch(url,{
                 method:"POST",
                 headers:{
@@ -430,15 +438,23 @@
             })
             .then((response) => response.json())
             .then((data) => {
-                window.location.href = '/checkout3'
+            console.log(data);
+            if (data.flow == 'out of stock') {
+                console.log('You have to do something');
+                var message = " *The following products are out of stock: <br>";
+                for (var i = 0; i < data.product_out_stock.length; i++) {
+                    var product = data.product_out_stock[i];
+                    message += ` Product: ${product.product_id}, ( ${product.color} ),( ${product.size} ), reduce by : ${product.remaining_quantity} to complete your order <br>`;
+                }
+                document.getElementById('outstock').innerHTML = message;
+            } else {
+                window.location.href = '/checkout3';
+            }
+        });
+    });
+</script>
 
-            })
 
-            
-        })
-
-
-    </script>
        
 {% endblock content %}
 

@@ -186,7 +186,7 @@
                                                         <span class="order-total__title">Order amount:</span>
                                                     </div>
                                                     <div class="order-total__col">
-                                                        <div class="order-total__price">$ {{i.total_price}}</div>
+                                                        <div class="order-total__price"> {{i.total_price}} EGP</div>
                                                     </div>                                                    
                                                 </div>
 
@@ -195,7 +195,7 @@
                                                         <span class="order-total__title">delivery fees:</span>
                                                     </div>
                                                     <div class="order-total__col">
-                                                        <div class="order-total__price">$ {{i.d_fee}}</div>
+                                                        <div class="order-total__price">{{i.d_fee}} EGP</div>
                                                     </div>                                                    
                                                 </div>
 
@@ -204,16 +204,16 @@
                                                         <span class="order-total__title">discount amount:</span>
                                                     </div>
                                                     <div class="order-total__col">
-                                                        <div class="order-total__price" style="color:red; font-weight: bold;"> - $ {{i.discount_amount}}</div>
+                                                        <div class="order-total__price" style="color:red; font-weight: bold;"> - {{i.discount_amount}} EGP</div>
                                                     </div>                                                    
                                                 </div>
-
+                                                <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>
                                                 <div class="order-total__item">
                                                     <div class="order-total__col">
                                                         <span class="order-total__title">Total:</span>
                                                     </div>
                                                     <div class="order-total__col">
-                                                        <div class="order-total__price">$ {{i.total}}</div>
+                                                        <div class="order-total__price" style="font-size: 24px; font-weight: bold;"> {{i.total}} EGP</div>
                                                     </div>                                                    
                                                 </div>
 

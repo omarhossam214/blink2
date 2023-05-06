@@ -112,48 +112,55 @@ class Order(models.Model):
 
     @property
     def get_cart_total(self):
+        try:
+            orderitems = self.orderitem_set.all()
+            total = sum([item.get_total for item in orderitems])
 
-        orderitems = self.orderitem_set.all()
-        total = sum([item.get_total for item in orderitems])
-
-        return total 
-    
+            return total 
+        except:
+            return 0 
    
     
     @property
     def get_cart_items(self):
-
-        orderitems = self.orderitem_set.all()
-        total = sum([item.quantity for item in orderitems])
-
-
-        return total
-    
+        try :
+            orderitems = self.orderitem_set.all()
+            total = sum([item.quantity for item in orderitems])
+            return total
+        except:
+            return 0 
+        
 
     @property
     def get_cart_total_discount(self):
-        orderitems = self.orderitem_set.all()
-        total = sum([item.get_total for item in orderitems])
+        try:
+            orderitems = self.orderitem_set.all()
+            total = sum([item.get_total for item in orderitems])
 
-        
-        if self.promocode:
-            discount_amount = (total * self.promocode.discount) / 100
-            after_dis = total - discount_amount
-            total = after_dis
+            
+            if self.promocode:
+                discount_amount = (total * self.promocode.discount) / 100
+                after_dis = total - discount_amount
+                total = after_dis
 
 
-        return total
+            return total
+        except:
+            return 0
     
 
     @property
     def get_cart_discount(self):
-        orderitems = self.orderitem_set.all()
-        total = sum([item.get_total for item in orderitems])
-        
-        if self.promocode:
-            discount_amount = (total * self.promocode.discount) / 100
+        try : 
+            orderitems = self.orderitem_set.all()
+            total = sum([item.get_total for item in orderitems])
             
-        return  discount_amount
+            if self.promocode:
+                discount_amount = (total * self.promocode.discount) / 100
+                
+            return  discount_amount
+        except : 
+            return 0
     
 class OrderItem(models.Model):
     

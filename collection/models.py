@@ -40,7 +40,7 @@ class Collections(models.Model):
 
 class Categories(models.Model):
     Category_name = models.CharField(max_length=100)
-    product_img = models.ImageField(upload_to = 'images',null=True)
+    product_img = models.ImageField(upload_to = 'images',null=True,blank=True)
 
 
     def __str__(self):
@@ -165,24 +165,24 @@ def update_product_stock(sender, instance, **kwargs):
     product.save()
 
 
-class Stocko(models.Model):
-    product = models.OneToOneField(Products, on_delete=models.CASCADE, related_name='stocko', unique=True)
-    S_count = models.PositiveIntegerField(default=0)
-    L_count = models.PositiveIntegerField(default=0)
-    XL_count = models.PositiveIntegerField(default=0)
-    XXL_count = models.PositiveIntegerField(default=0)
+# class Stocko(models.Model):
+#     product = models.OneToOneField(Products, on_delete=models.CASCADE, related_name='stocko', unique=True)
+#     S_count = models.PositiveIntegerField(default=0)
+#     L_count = models.PositiveIntegerField(default=0)
+#     XL_count = models.PositiveIntegerField(default=0)
+#     XXL_count = models.PositiveIntegerField(default=0)
 
-    def save(self, *args, **kwargs):
-        total_count = self.S_count + self.L_count + self.XL_count + self.XXL_count
-        self.product.stock = total_count != 0
-        self.product.save()
-        super(Stocko, self).save(*args, **kwargs)
+#     def save(self, *args, **kwargs):
+#         total_count = self.S_count + self.L_count + self.XL_count + self.XXL_count
+#         self.product.stock = total_count != 0
+#         self.product.save()
+#         super(Stocko, self).save(*args, **kwargs)
 
-    def total_count(self):
-        return self.S_count + self.L_count + self.XL_count + self.XXL_count
+#     def total_count(self):
+#         return self.S_count + self.L_count + self.XL_count + self.XXL_count
     
-    def __str__(self):
-        return self.product.Name
+#     def __str__(self):
+#         return self.product.Name
     
     
 

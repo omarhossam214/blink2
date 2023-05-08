@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404, redirect,HttpResponse
-from collection.models import Categories,Colors,Products,Collections,Photo,Stocko,StockColor
+from collection.models import Categories,Colors,Products,Collections,Photo,StockColor
 from login.models import *
 from product_page.models import Reviews
 from datetime import date

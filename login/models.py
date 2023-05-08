@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from collection.models import Products,Stocko,PromoCode,StockColor
+from collection.models import Products,PromoCode,StockColor
 import datetime
 from django.db.models import Max
 from django.db.models import Sum

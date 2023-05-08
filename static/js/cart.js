@@ -1,74 +1,54 @@
-var updateBtns = document.getElementsByClassName('update-cart')
+var updateBtns = document.getElementsByClassName('update-cart');
 
-
-
-
-for(var i=0; i < updateBtns.length; i++){
-    updateBtns[i].addEventListener('click',function(){
-        var productId = this.dataset.product
-        var action = this.dataset.action
-        var sizeInputs = document.querySelectorAll('.size__input');
-        var selectedSize = '';
-        if(!this?.dataset.size){
-          for (var i = 0; i < sizeInputs.length; i++) {
-          if (sizeInputs[i]?.checked) {
-              selectedSize = sizeInputs[i]?.nextElementSibling?.nextElementSibling?.innerText;
-              break;
+for (var i = 0; i < updateBtns.length; i++) {
+    updateBtns[i].addEventListener('click', function(event) {
+        event.preventDefault();
+        var sizeInputs = document.getElementsByName('size');
+        var checkedSize = null;
+        for (var j = 0; j < sizeInputs.length; j++) {
+            if (sizeInputs[j].checked) {
+                checkedSize = sizeInputs[j].value;
+                break;
             }
-          }
-        }else{
-          selectedSize = this.dataset.size
         }
-        
-
-        console.log('productId:',productId,'action:',action,'selectedSize:',selectedSize)
-
-        console.log('user:',user)
-        if(user == 'AnonymousUser'){
-            console.log('not logged in')
-            updateUserOrder(productId, action, selectedSize)
-
-        } else{
-            updateUserOrder(productId, action, selectedSize)
+        var colorInputs = document.getElementsByName('color');
+        var checkedColor = null;
+        for (var k = 0; k < colorInputs.length; k++) {
+            if (colorInputs[k].checked) {
+                checkedColor = colorInputs[k].value;
+                break;
+            }
+            // <-- MISSING CLOSING CURLY BRACE HERE
         }
-    }) 
+        var productAddDiv = this.closest('.product-add');
+        var button = productAddDiv.querySelector('.update-cart');
+        var productId = button.dataset.product;
+        var action = button.dataset.action;
+        console.log(checkedSize, checkedColor, action, productId);
+        updateUserOrder(checkedSize, checkedColor, action, productId);
+    });
 }
 
-function updateUserOrder(productId, action,selectedSize){
-  console.log('user is logged in,sending data')
+function updateUserOrder(checkedSize, checkedColor, action, productId) {
+    console.log(checkedSize, checkedColor, action, productId);
 
+    var url = '/shop/update_item/';
 
-  var url = '/shop/update_item/'
-
-  fetch(url,{
-    method:'POST',
-    headers:{
-      'content-Type':'application/json',
-      'X-CSRFToken' : csrftoken
-    },
-    body:JSON.stringify({'productId':productId,'action':action,'selectedSize':selectedSize})
-  })
-
-
-  .then((data) =>{
-    console.log('data:', data)
-    location.reload()
-    
-  })
-
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+        },
+        body: JSON.stringify({
+            'productId': productId,
+            'action': action,
+            'checkedColor': checkedColor,
+            'checkedSize': checkedSize
+        })
+    })
+    .then((data) => {
+        console.log('data:', data);
+        location.reload();
+    });
 }
-
-
-
-var sizeInputs = document.querySelectorAll('.size__input');
-var selectedSize = '';
-
-for (var i = 0; i < sizeInputs.length; i++) {
-if (sizeInputs[i].checked) {
-    selectedSize = sizeInputs[i].nextElementSibling.nextElementSibling.innerText;
-    break;
-}
-}
-
-console.log(selectedSize);
-

@@ -54,7 +54,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="main-slider__image-wrap">
-                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/1.jpeg' %}"></div>
+                                                    <div class="main-slider__image" data-bg="{{index.first_slider_img.url}}"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,7 +72,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="main-slider__image-wrap">
-                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/2.jpeg'%}"></div>
+                                                    <div class="main-slider__image" data-bg="{{index.second_slider_img.url}}"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +90,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="main-slider__image-wrap">
-                                                    <div class="main-slider__image" data-bg="{% static 'img/blink/7.jpeg'%}"></div>
+                                                    <div class="main-slider__image" data-bg="{{index.third_slider_img.url}}"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,26 +113,22 @@
             </div>
             <!-- FIRST SCREEN END -->
             <!-- BEGIN ADVANTAGES -->
-
-    <div class="advantages wrapper">
-        <div class="advantages__list">
-            {%for i in promo%}
-            <article class="advantage">
-                <div class="advantage__content">
-                  <div class="advantage__icon-wrap">
-                    <img class="advantage__icon" src="{{i.image.url}}" alt="">
-                  </div>
-                  <h4 class="advantage__title" style="font-family: Fantasy, cursive;">{{i.code}}</h4>
-                  <div class="advantage__line-container">
-                    <div class="advantage__line">{{i.description}}</div>
-                    <div class="advantage__line-note"></div>
-                  </div>
+            <!-- <div class="my-advantages wrapper">
+                <div class="my-advantages__list">
+                    <article class="my-advantage">
+                        <div class="my-advantage__content">
+                            <div class="my-advantage__line-container">
+                                <div class="my-advantage__line">Description</div>
+                                <div class="my-advantage__line-note"></div>
+                            </div>
+                        </div>
+                        <div class="my-advantage__bg"></div>
+                    </article>
                 </div>
-                <img class="advantage__bg advantage__bg-1" src="{% static 'img/silver-thin-square.png'%}" alt="">
-              </article>
-            {%endfor%}
-        </div>
-    </div>
+            </div> -->
+            <!-- <div class="my-advantages wrapper">
+                <img src="https://cdn.shopify.com/s/files/1/0649/6052/8608/files/Untitled-2_dcfa8319-d965-4a24-ac0a-b2526b50c104.jpg?v=1672594913&width=1100" alt="">
+            </div> -->
     <!-- ADVANTAGES END -->
 
             <!-- BEGIN COLLECTION -->
@@ -186,7 +182,7 @@
                     </div>                                     
                 </div>                  
                 <img class="collection-block__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt="">
-                <img class="collection-block__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt="">
+                <!-- <img class="collection-block__bg-right" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-collections.svg'%}" alt=""> -->
             </section>
             <!-- COLLECTION END -->
 
@@ -261,7 +257,7 @@
                                 </article>
                             {%endfor%}      
                         </div>
-                        <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-catalog.svg' %}" alt="">
+                        <!-- <img class="main-catalog__bg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="{% static 'img/svg/vector-catalog.svg' %}" alt=""> -->
                     </div>
                 </div>
                 <!-- TAB 1 END -->
@@ -1434,10 +1430,7 @@
                 <div class="footer__top">
                     <div class="footer__cols">
                         <div class="footer__col">
-                            <a class="footer-logo logo" href="#">
-                                <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
-                            </a>
-                            <span class="footer-description">Cillum eu id enim aliquip aute ullamco anim. <br>Culpa deserunt nostrud excepteur voluptate.</span>  
+                                <a style="font-family: 'Segoe Script', 'Helvetica Neue', sans-serif; font-size: 28px; font-weight: bold; color: #f0dcdc;">Blink</a>
                             <div class="footer-line"></div>  
                             <div class="socials">
                                 <span class="socials__text">Find us here:</span>
@@ -1506,14 +1499,14 @@
                             <span class="footer-description">Subscribe to be the first to hear about deals,&nbsp;&nbsp;offers and upcoming collections.</span>
                             <form>
                                 <div class="subscription">
-                                    <input class="subscription__input" type="email" placeholder="Enter your email">
+                                    <input class="subscription__input" type="email" placeholder="Enter your email" style="::placeholder {color: white; font-family: Arial, sans-serif; font-size: 14px;}">
                                     <button class="subscription__button" type="submit"></button>
                                 </div>
                             </form>                            
                         </div>                                                
                     </div>
                 </div>
-                <div class="footer__bottom">
+                <!-- <div class="footer__bottom">
                     <div class="footer__cols">
                         <div class="footer__left">
                             <span class="copyrights">&copy; All right reserved. Mollee 2021</span>
@@ -1542,7 +1535,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <img class="footer__bg-left" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazy="assets/img/svg/vector-footer-left.svg" alt="">
             </div>
         </footer>

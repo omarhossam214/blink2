@@ -37,10 +37,6 @@ class StockColorAdmin(admin.StackedInline):
 
 
 
-class StockoInline(admin.StackedInline):
-    model = Stocko
-    extra = 1
-
 
 
 class ProductsAdmin(admin.ModelAdmin):
@@ -49,7 +45,7 @@ class ProductsAdmin(admin.ModelAdmin):
     list_editable = ['stock','price','Category','Color','old_price']
     search_fields = ['Name']
     list_filter = ['stock','Category','Color',("data_order", DateRangeFilterBuilder()),]
-    inlines = [CollectionInline,PhotoAdmin,StockoInline,StockColorAdmin]
+    inlines = [CollectionInline,PhotoAdmin,StockColorAdmin]
     exclude = ('collection',)
     readonly_fields = ('total_quantity',)
 
@@ -74,14 +70,6 @@ class CategoriesAdmin(admin.ModelAdmin):
 
                          
 
-class StockoAdmin(admin.ModelAdmin):
-
-    list_display = ['product','S_count','L_count','XL_count','XXL_count']
-    list_display_links = ['product']
-   
-    
-
-
 
 
 
@@ -92,6 +80,5 @@ admin.site.register(Products,ProductsAdmin)
 admin.site.register(Collections)
 admin.site.register(Categories,CategoriesAdmin)
 admin.site.register(Colors)
-admin.site.register(Stocko,StockoAdmin)
 admin.site.register(PromoCode)
 

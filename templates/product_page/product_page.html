@@ -1,26 +1,26 @@
 {%load static %}
 
-
 <!doctype html>
 <html lang="zxx">
 <head>
+
     <meta charset="utf-8">
 	<meta name="format-detection" content="telephone=no">
     <meta id="Viewport" name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <title>Fashionee - Product page</title>
+    <link rel="icon" type="image/x-icon" href="{% static  'img/favicon.' %}">
+    <title>Fashionee - Shop</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="it-rating" content="it-rat-cd303c3f80473535b3c667d0d67a7a11" />
     <meta name="cmsmagazine" content="3f86e43372e678604d35804a67860df7" />
+
     <style>
         .loaded .load-icon{display:block;}
         .loaded *{-webkit-transition:none; -ms-transition:none; transition:none;}
         .load-icon{width:100%; height:100%; margin:0; padding:0; display:none; z-index:99999; position:absolute; top:0; left:0; background:#fff;}
-        .load-icon:before{content:""; width:64px; height:64px; margin:-32px 0 0 -32px; position:absolute; top:50%; left:50%; background:url("{% static 'img/loader.gif'%}") no-repeat left top;}
+        .load-icon:before{content:""; width:64px; height:64px; margin:-32px 0 0 -32px; position:absolute; top:50%; left:50%; background:url(assets/img/loader.gif) no-repeat left top;}
     </style>     
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
     <script type="text/javascript">
         var user = '{{request.user}}';
     
@@ -41,252 +41,221 @@
         }
         var csrftoken = getCookie('csrftoken');
     </script>
-  
-
-
+    
 </head>
 <body class="loaded">
 
-    <div class="load-icon"></div>
-
-    <div class="page-container">
-
-        <!-- BEGIN HEADER -->
-        <header class="header">
-            <div class="header__main">
+ <!-- BEGIN HEADER -->
+ <header class="header">
+    <div class="header__main">
+        <div class="header__cols">
+            <div class="header__left">
                 <div class="header__cols">
-                    <div class="header__left">
-                        <div class="header__cols">
-                            <div class="header__col">
-                                <button class="mob-button js-mob-open">
-                                    <span class="mob-button__icon"></span>
-                                </button>
-                            </div>
-                            <div class="header__col">
-                                <a class="logo" href="#">
-                                    <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
-                                </a>
-                            </div>
-                            <div class="header__col header__col_hide-mob">
-                                <nav class="header-nav">
-                                    <ul class="header-nav__list">
-                                        <li class="header-nav__item">
-                                            <a class="header-nav__link" href="/index">home}</a>
-                                        </li>
-                                        <li class="header-nav__item js-nav-item">
-                                            <a class="header-nav__link header-nav__link_arrow js-nav-button" href="about.html">Pages</a>
-                                            <div class="hide-nav js-nav-hide">
-                                                <ul class="hide-nav__list">
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/login">Login</a>
-                                                    </li> 
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/registration">Registration</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/about">About us</a>
-                                                    </li>     
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/collection">Collections</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/faq">FAQ</a>
-                                                    </li>   
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/post">Post</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="404.html">404</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li class="header-nav__item js-nav-item active">
-                                            <a class="header-nav__link header-nav__link_arrow js-nav-button" href="/shop">Shop</a>
-                                            <div class="hide-nav js-nav-hide">
-                                                <ul class="hide-nav__list">
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/my_profile">Profile</a>
-                                                    </li>                                                    
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/shop">Catalog</a>
-                                                    </li>
-                                                    <li class="hide-nav__item active">
-                                                        <a class="hide-nav__link" href="/product_page">Product page</a>
-                                                    </li>                                                    
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/cart">Cart</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/checkout1">Checkout 1</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/checkout2">Checkout 2</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/checkout3">Checkout 3</a>
-                                                    </li>
-                                                    <li class="hide-nav__item">
-                                                        <a class="hide-nav__link" href="/wishlist">Wishlist</a>
-                                                    </li>
-                                                </ul>
-                                            </div>                                           
-                                        </li>
-                                        <li class="header-nav__item">
-                                            <a class="header-nav__link" href="/blog">Blog</a>
-                                        </li>
-                                        <li class="header-nav__item">
-                                            <a class="header-nav__link" href="/contacts">Contact</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>                                                
-                        </div>
+                    <div class="header__col">
+                        <button class="mob-button js-mob-open">
+                            <span class="mob-button__icon"></span>
+                        </button>
                     </div>
-                    <div class="header__right">
-                        <ul class="user-nav">
-                            <li class="user-nav__item">
-                                <a class="user-nav__link" href="#">
-                                    <span class="user-nav__icon user-nav__icon_1"></span>
-                                </a>
-                            </li>
-                            {% if user.is_authenticated %}
-                            <li class="user-nav__item">
-                                <form action="{% url 'logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="next" value="{{ request.path }}">
-                                    <button type="submit">Log out</button>
-                                </form>
-                            </li>
-                            <li class="user-nav__item">
-                                <a class="user-nav__link" href="/my_profile">
-                                    <span class="user-nav__icon user-nav__icon_2"></span>
-                                </a>
-                            </li>
-                            {%else%}
-                            <li class="user-nav__item">
-                                <a class="user-nav__link" href="/registration">
-                                    <span class="user-nav__icon user-nav__icon_2"></span>
-                                </a>
-                            </li>
-                            {%endif%}
-                            <li class="user-nav__item">
-                                <a class="user-nav__link" href="#">
-                                    <span class="user-nav__icon user-nav__icon_3"></span>
-                                    <span class="user-nav__text">0</span>
-                                </a>
-                            </li>
-                            <li class="user-nav__item">
-                                <a class="user-nav__link" href="/cart">
-                                    <span class="user-nav__icon user-nav__icon_4"></span>
-                                    <span class="user-nav__text">{{cartItems}}</span>
-                                </a>
-                            </li>                                                                                    
-                        </ul>
+                    <div class="header__col">
+                        <a class="logo" href="#">
+                            <img class="logo__image" src="https://via.placeholder.com/82x17" alt="">
+                        </a>
                     </div>
+                    <div class="header__col header__col_hide-mob">
+                        <nav class="header-nav">
+                            <ul class="header-nav__list">
+                                <li class="header-nav__item">
+                                    <a class="header-nav__link" href="/index">Home</a>
+                                </li>
+                                <li class="header-nav__item js-nav-item">
+                                    <a class="header-nav__link header-nav__link_arrow js-nav-button" href="/about">Pages</a>
+                                    <div class="hide-nav js-nav-hide">
+                                        <ul class="hide-nav__list">
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/login">Login</a>
+                                            </li> 
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/registration">Registration</a>
+                                            </li>
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/about">About us</a>
+                                            </li>     
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/faq">FAQ</a>
+                                            </li> 
+                                           
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="header-nav__item js-nav-item">
+                                    <a class="header-nav__link header-nav__link_arrow js-nav-button" href="/shop">Shop</a>
+                                    <div class="hide-nav js-nav-hide">
+                                        <ul class="hide-nav__list">
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/collection">Collections</a>
+                                            </li>                                                    
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/shop">Catalog</a>
+                                            </li>
+                                            <li class="hide-nav__item">
+                                                <a class="hide-nav__link" href="/wishlist">Wishlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>                                           
+                                </li>
+                                <li class="header-nav__item active">
+                                    <a class="header-nav__link" href="/blog">Blog</a>
+                                </li>
+                                <li class="header-nav__item">
+                                    <a class="header-nav__link" href="/contacts">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>                                                
                 </div>
             </div>
-        </header>
-        <!-- HEADER END --> 
-        
-        <!-- MOBILE NAVIGATION -->
-        <div class="hide-mob js-mob-hide">
-            <div class="hide-mob__bg">
-                <button class="hide-mob__close close-button js-mob-close"></button>  
-                <div class="hide-mob__mask js-mob-close"></div>
-                <ul class="mob-nav">
-                    <li class="mob-nav__item">
-                        <a class="mob-nav__link" href="index.html">Home</a>
-                    </li>
-                    <li class="mob-nav__item js-slidedown">
-                        <a class="mob-nav__link js-slidedown-button" href="/about">
-                            <span class="mob-nav__arrow">Pages</span>
+            <div class="header__right">
+                <ul class="user-nav">
+                    <li class="user-nav__item">
+                        <a class="user-nav__link" href="#">
+                            <span class="user-nav__icon user-nav__icon_1"></span>
                         </a>
-                        <div class="slide-nav js-slidedown-hide">
-                            <ul class="slide-nav__list">
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/login">Login</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/registration">Registration</a>
-                                </li>                                                                
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/about">About us</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/collection">Collections</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/faq">FAQ</a>
-                                </li>  
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/post">Post</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="404.html">404</a>
-                                </li>
-                            </ul>                                                              
-                        </div>
                     </li>
-                    <li class="mob-nav__item js-slidedown">
-                        <a class="mob-nav__link js-slidedown-button" href="#">
-                            <span class="mob-nav__arrow">Shop</span>
+                    {% if user.is_authenticated %}
+                        <li class="user-nav__item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button type="submit">Log out</button>
+                            </form>
+                        </li>
+                        <li class="user-nav__item">
+                            <a class="user-nav__link" href="/my_profile">
+                                <span class="user-nav__icon user-nav__icon_2"></span>
+                            </a>
+                        </li>
+                        {%else%}
+                        <li class="user-nav__item">
+                            <a class="user-nav__link" href="/login">
+                                <span class="user-nav__icon user-nav__icon_2"></span>
+                            </a>
+                        </li>
+                    {%endif%}
+                    <li class="user-nav__item">
+                        <a class="user-nav__link" href="/wishlist">
+                            <span class="user-nav__icon user-nav__icon_3"></span>
+                            <span class="user-nav__text">0</span>
                         </a>
-                        <div class="slide-nav js-slidedown-hide">
-                            <ul class="slide-nav__list">
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/my_profile">Profile</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/shop">Catalog</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/product_page">Product page</a>
-                                </li>                                
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/cart">Cart</a>
-                                </li> 
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/checkout1">Checkout 1</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/checkout2">Checkout 2</a>
-                                </li>
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/checkout3">Checkout 3</a>
-                                </li>                                                                                                
-                                <li class="slide-nav__item">
-                                    <a class="slide-nav__link" href="/wishlist">Wishlist</a>
-                                </li>                                                                     
-                            </ul>                                                              
-                        </div>
                     </li>
-                    <li class="mob-nav__item">
-                        <a class="mob-nav__link" href="/blog">Blog</a>
-                    </li>
-                    <li class="mob-nav__item">
-                        <a class="mob-nav__link" href="/contacts">Contact</a>
-                    </li>                                                                                                
+                    <li class="user-nav__item">
+                        <a class="user-nav__link" href="/cart">
+                            <span class="user-nav__icon user-nav__icon_4"></span>
+                            <span class="user-nav__text">{{cartItems}}</span>
+                        </a>
+                    </li>                                                                                    
                 </ul>
-                <div class="hide-mob__socials">
-                    <ul class="socials__list socials__list_center">
-                        <li class="socials__item">
-                            <a class="socials__link" href="https://www.facebook.com/">Fb</a>
-                        </li>
-                        <li class="socials__item">
-                            <a class="socials__link" href="https://twitter.com/">Tw</a>
-                        </li> 
-                        <li class="socials__item">
-                            <a class="socials__link" href="https://www.instagram.com/">Ins</a>
-                        </li>
-                        <li class="socials__item">
-                            <a class="socials__link" href="#">Pt</a>
-                        </li>                                                                           
-                    </ul>
-                </div>                    
-            </div>              
+            </div>
         </div>
-        <!-- MOBILE NAVIGATION END -->       
+    </div>
+</header>
+<!-- HEADER END -->
+
+ <!-- MOBILE NAVIGATION -->
+ <div class="hide-mob js-mob-hide ">
+    <div class="hide-mob__bg">
+        <button class="hide-mob__close close-button js-mob-close"></button>  
+        <div class="hide-mob__mask js-mob-close"></div>
+        <ul class="mob-nav">
+            <li class="mob-nav__item">
+                <a class="mob-nav__link" href="/index">Home</a>
+            </li>
+            <li class="mob-nav__item js-slidedown">
+                <a class="mob-nav__link js-slidedown-button" href="/about">
+                    <span class="mob-nav__arrow">Pages</span>
+                </a>
+                <div class="slide-nav js-slidedown-hide">
+                    <ul class="slide-nav__list">
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/login">Login</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/registration">Registration</a>
+                        </li>                                                                
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/about">About us</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/collection">Collections</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/faq">FAQ</a>
+                        </li>  
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/post">Post</a>
+                        </li>
+                        
+                    </ul>                                                              
+                </div>
+            </li>
+            <li class="mob-nav__item js-slidedown">
+                <a class="mob-nav__link js-slidedown-button" href="#">
+                    <span class="mob-nav__arrow">Shop</span>
+                </a>
+                <div class="slide-nav js-slidedown-hide">
+                    <ul class="slide-nav__list">
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/my_profile">Profile</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/shop">Catalog</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/product_page">Product page</a>
+                        </li>                                
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/cart">Cart</a>
+                        </li> 
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/checkout1">Checkout 1</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/checkout2">Checkout 2</a>
+                        </li>
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/checkout3">Checkout 3</a>
+                        </li>                                                                                                
+                        <li class="slide-nav__item">
+                            <a class="slide-nav__link" href="/wishlist">Wishlist</a>
+                        </li>                                                                     
+                    </ul>                                                              
+                </div>
+            </li>
+            <li class="mob-nav__item">
+                <a class="mob-nav__link" href="/blog">Blog</a>
+            </li>
+            <li class="mob-nav__item">
+                <a class="mob-nav__link" href="/contacts">Contact</a>
+            </li>                                                                                                
+        </ul>
+        <div class="hide-mob__socials">
+            <ul class="socials__list socials__list_center">
+                <li class="socials__item">
+                    <a class="socials__link" href="#">Fb</a>
+                </li>
+                <li class="socials__item">
+                    <a class="socials__link" href="#">Tw</a>
+                </li> 
+                <li class="socials__item">
+                    <a class="socials__link" href="#">Ins</a>
+                </li>
+                <li class="socials__item">
+                    <a class="socials__link" href="#">Pt</a>
+                </li>                                                                           
+            </ul>
+        </div>                    
+    </div>              
+</div>
+<!-- MOBILE NAVIGATION END -->     
 
         <!-- BEGIN MAIN -->
         <main class="main">              
